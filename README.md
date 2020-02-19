@@ -19,3 +19,52 @@ git add .
 Task #5 commit a staged change
 git commit -m "added first commit"
 
+SSL Certificate commands
+
+To generate an RSA key, use the genrsa command:
+openssl genrsa -aes128 -out fd.key 2048
+ 
+To see the information in private key
+openssl rsa -text -in private.key
+
+If you need to have just the public part of a key separately, you can do that with the following rsa command:
+$ openssl rsa -in fd.key -pubout -out fd-public.key
+
+Generate a CSR with a new Private Key
+openssl req -out <CSR>.csr -new -newkey rsa:2048 -nodes -keyout <unencrypted name>.key
+
+check that the CSR is correct
+openssl req -text -in fd.csr -noout
+
+Creating CSRs from Existing Certificates
+openssl x509 -x509toreq -in fd.crt -out fd.csr -signkey fd.key
+
+Signing a CSR to generate self-signed certificate
+openssl x509 -req -days 365 -in fd.csr -signkey fd.key -out fd.crt
+
+Examining certificate
+openssl x509 -text -in fd.crt -noout
+
+PKCS#12- A complex format that can store and protect a server key along with an entire certificate chain. It’s commonly seen with .p12 and .pfx extensions.
+
+convert the key and certificates in PEM format to PKCS#12
+openssl pkcs12 -export \
+    -name "My Certificate" \
+    -out fd.p12 \
+    -inkey fd.key \
+    -in fd.crt \
+    -certfile fd-chain.crt
+Enter Export Password: ****************
+Verifying - Enter Export Password: ****************
+
+
+
+
+
+
+
+
+
+
+
+
