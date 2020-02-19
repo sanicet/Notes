@@ -32,6 +32,9 @@ $ openssl rsa -in fd.key -pubout -out fd-public.key
 
 Generate a CSR with a new Private Key
 openssl req -out <CSR>.csr -new -newkey rsa:2048 -nodes -keyout <unencrypted name>.key
+ 
+Generate a CSR with an existing private Key
+openssl req -new -key private.key -out fd.csr
 
 check that the CSR is correct
 openssl req -text -in fd.csr -noout
