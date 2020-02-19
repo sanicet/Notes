@@ -57,6 +57,10 @@ openssl pkcs12 -export \
 Enter Export Password: ****************
 Verifying - Enter Export Password: ****************
 
+command for  PKSC#12 to extract detail
+
+openssl pkcs12 -in fd.p12 -out fd.pem -nodes
+
 
 
 
