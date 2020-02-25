@@ -64,6 +64,9 @@ command for  PKSC#12 to extract detail
 
 openssl pkcs12 -in fd.p12 -out fd.pem -nodes
 
+WGET to download all the files in a webpage
+wget --http-user= --http-password= -r -np -k <<url>>
+
 
 
 
