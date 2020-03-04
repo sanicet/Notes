@@ -67,8 +67,8 @@ openssl pkcs12 -in fd.p12 -out fd.pem -nodes
 WGET to download all the files in a webpage
 wget --http-user= --http-password= -r -np -k <<url>>
 
-
-
+Security notes
+https://cwe.mitre.org/data/definitions/693.html
 
 
 
