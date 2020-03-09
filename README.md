@@ -77,6 +77,8 @@ https://medium.com/@dilankam/restful-api-design-best-practices-principles-ded471
 
 folder structure best practices
 
+https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-practices-part-2-7137bdcba7d3
+
 config
 controller
 dto
