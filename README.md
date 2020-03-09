@@ -70,9 +70,23 @@ wget --http-user= --http-password= -r -np -k <<url>>
 Security notes
 https://cwe.mitre.org/data/definitions/693.html
 
-Microservices
+Microservices 
 
+Rest best practices
 https://medium.com/@dilankam/restful-api-design-best-practices-principles-ded471f573f3
+
+folder structure best practices
+
+config
+controller
+dto
+exception
+model
+repository
+security
+service
+util
+
 
 
 
