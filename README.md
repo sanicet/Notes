@@ -90,6 +90,9 @@ service
 util
 
 
+Linux
+Find - https://www.suse.com/c/linux-command-line-i/
+
 
 
 
