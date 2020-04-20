@@ -92,6 +92,21 @@ util
 
 Linux
 Find - https://www.suse.com/c/linux-command-line-i/
+eg ; find /etc -type f | xargs grep -l -i "damian"
+to increase the time out:
+
+Resolution
+Edit the /etc/ssh/sshd_config file
+Un-remark or add the ClientAliveInterval parameter and set it to the number of seconds (of inacitivty) that ssh should wait before terminating the connection.
+Un-remark or add the ClientAliveCountMax and set it to 0.
+Restart the ssh daemon.
+Additional Information
+An example configuration would be:
+
+ClientAliveInterval 600
+ClientAliveCountMax 0
+
+This would clear any ssh sessions that have been inactive for 10 minutes.
 
 
 
