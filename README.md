@@ -113,8 +113,27 @@ Linux
 
  RPM
    https://www.suse.com/c/useful-rpm-commands/
+   
+  SQL :
+  
+Getting size of the table
+  
+select owner, segment_name, sum(bytes)/1024/1024 MB from dba_segments where segment_name in ('table name');
 
+select owner, segment_name, sum(bytes)/1024/1024  MB from dba_segments where segment_name in (select index_name from dba_indexes where table_name='table name') 
+and owner='schema name';
 
+Coverting Blob to clob
+select COUNT(*)
+  from table 
+ where dbms_lob.instr (EVENT_DATA, -- the blob
+                   utl_raw.cast_to_raw ('ggg'), -- the search string cast to raw
+                   1, -- where to start. i.e. offset
+                   1 -- Which occurrance i.e. 1=first
+                    ) > 0 -- location of occurrence. Here I don't care.  Just
+and CREATE_DT>SYSDATE-1
+                    
+                    ;
 
 
 
