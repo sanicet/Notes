@@ -136,7 +136,8 @@ and CREATE_DT>SYSDATE-1
                     ;
 
 
-
+Spring:
+I prefer using constructor injection (over field and setter injection) to keep the state in my components immutable. The immutable state is important if you want to be able to run the component in a multithreaded runtime environment.
 
 
 
