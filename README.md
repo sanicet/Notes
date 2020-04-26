@@ -156,3 +156,5 @@ SpringFox is used to document the service based and is based on Swagger /open AP
 
 
 Spring Data - Based on entities and repositories , It supports relational( JPA based) and non relational ( eg : Mongo - document, key-value - Redis, Graph -Neo4j). Annotations - @Entity, @IDClass("idclass.class"), @Table("tableName"), @ID, @Version
+Entity - Data to be stored;
+Repository -interface used to store and retrieve data from tables in a generic way.
