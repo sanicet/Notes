@@ -135,6 +135,9 @@ and CREATE_DT>SYSDATE-1
                     
                     ;
 
+JPA
+https://jcp.org/aboutJava/communityprocess/mrel/jsr338/index.html 
+
 
 Spring:
 I prefer using constructor injection (over field and setter injection) to keep the state in my components immutable. The immutable state is important if you want to be able to run the component in a multithreaded runtime environment.
@@ -152,4 +155,4 @@ Spring boot property names : application.properties or application.yml
 SpringFox is used to document the service based and is based on Swagger /open API specification. it does this by examining tha application while startup to create documents based on inspecting various annnotations eg: webflux, swagger etc
 
 
-Spring Data - Based on entities and repositories , It supports relational( JPA based) and non relational ( eg : Mongo - document, key-value - Redis, Graph -Neo4j).
+Spring Data - Based on entities and repositories , It supports relational( JPA based) and non relational ( eg : Mongo - document, key-value - Redis, Graph -Neo4j). Annotations - @Entity, @IDClass("idclass.class"), @Table("tableName"), @ID, @Version
