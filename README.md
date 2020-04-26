@@ -149,7 +149,7 @@ Spring boot property names : application.properties or application.yml
   Change the port eg : server.port:8081
 
 
-
+SpringFox is used to document the service based and is based on Swagger /open API specification. it does this by examining tha application while startup to create documents based on inspecting various annnotations eg: webflux, swagger etc
 
 
 
