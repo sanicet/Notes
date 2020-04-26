@@ -143,6 +143,8 @@ Prefer having the instance variable declared as final if it need to not be chang
 
 Annotations : @SpringBootApplication, @Component, @Bean (used in java configuration), @Configuration, @AutoWired ( injecting a component to another instance variable, @ComponentScan({"package"})
 
+Spring Webflux : Supports annotation based style or functional style (based on routers and handlers). Instead of RestTemplate, it uses WebClient for http request, It supports servlet based containers but need servlet 3.1 or higher. Or we will have to use embodded non servlet based containers eg Netty
+
 
 
 
