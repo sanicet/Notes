@@ -141,9 +141,12 @@ I prefer using constructor injection (over field and setter injection) to keep t
 
 Prefer having the instance variable declared as final if it need to not be changed
 
-Annotations : @SpringBootApplication, @Component, @Bean (used in java configuration), @Configuration, @AutoWired ( injecting a component to another instance variable, @ComponentScan({"package"})
+Annotations : @SpringBootApplication, @Component, @Bean (used in java configuration), @Configuration, @AutoWired ( injecting a component to another instance variable, @ComponentScan({"package"}), @RestController , @GetMapping(value="/my-resource", produces="application/json"), @PostMapping(value="",produces="")
 
 Spring Webflux : Supports annotation based style or functional style (based on routers and handlers). Instead of RestTemplate, it uses WebClient for http request, It supports servlet based containers but need servlet 3.1 or higher. Or we will have to use embodded non servlet based containers eg Netty
+
+Spring boot property names : application.properties or application.yml
+  Change the port eg : server.port:8081
 
 
 
