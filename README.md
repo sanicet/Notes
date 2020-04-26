@@ -152,4 +152,4 @@ Spring boot property names : application.properties or application.yml
 SpringFox is used to document the service based and is based on Swagger /open API specification. it does this by examining tha application while startup to create documents based on inspecting various annnotations eg: webflux, swagger etc
 
 
-
+Spring Data - Based on entities and repositories , It supports relational( JPA based) and non relational ( eg : Mongo - document, key-value - Redis, Graph -Neo4j).
