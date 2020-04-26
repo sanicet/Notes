@@ -139,6 +139,12 @@ and CREATE_DT>SYSDATE-1
 Spring:
 I prefer using constructor injection (over field and setter injection) to keep the state in my components immutable. The immutable state is important if you want to be able to run the component in a multithreaded runtime environment.
 
+Prefer having the instance variable declared as final if it need to not be changed
+
+Annotations : @SpringBootApplication, @Component, @Bean (used in java configuration), @Configuration, @AutoWired ( injecting a component to another instance variable, @ComponentScan({"package"})
+
+
+
 
 
 
