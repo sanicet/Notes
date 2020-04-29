@@ -165,3 +165,12 @@ public interface ReviewRepository extends CrudRepository<ReviewEntity, ReviewEnt
 Spring Data will implement the method if naming convention is followed properly.
  
 For reactive, use ReactiveCrudRepository - returns Mono(0-1) or Flux(0-m) streams as they are available. Spring data JPA does not support this but spring data MongoDB supports this.
+
+TShark/WireShark
+https://blogs.oracle.com/meena/using-tshark-to-debug-ssl-connections
+zypper install wireshark
+tshark -Y http
+tshark -o "ssl.keys_list:csiws2-test.csidentity.com,443,http,shars.pem" > log01.txt
+/export/home/spjxp427
+/export/home/spjxp427/ shars.pem
+/export/home/spjxp427/log01.txt
