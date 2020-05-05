@@ -60,6 +60,9 @@ openssl pkcs12 -export \
 Enter Export Password: ****************
 Verifying - Enter Export Password: ****************
 
+creating a certificate chain pem
+https://www.digicert.com/kb/ssl-support/pem-ssl-creation.htm
+
 command for  PKSC#12 to extract detail
 
 openssl pkcs12 -in fd.p12 -out fd.pem -nodes
