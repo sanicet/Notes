@@ -175,6 +175,7 @@ zypper install wireshark
 tshark -Y http
 tshark -o "ssl.keys_list:csiws2-test.csidentity.com,443,http,shars.pem" > log01.txt
 tshark -f "tcp port 443 and host xxx.com or host a.b.c.d" -i eth0 -x -P
+tshark -f "tcp port 443 and host xxx.com "  -i  eth0 -V
 
 Curl
 Without proxy
