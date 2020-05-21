@@ -177,3 +177,21 @@ tshark -o "ssl.keys_list:csiws2-test.csidentity.com,443,http,shars.pem" > log01.
 /export/home/spjxp427
 /export/home/spjxp427/ shars.pem
 /export/home/spjxp427/log01.txt
+
+Oracle
+
+Check if a list is not there 
+
+with id_list as (
+  select 'CA562508150' id from dual union all
+  select '1-421J8O' id from dual union all
+  select '1-42BF7O' id from dual union all
+  select '1-42CVWP' id from dual union all
+  select '1-9KSHF9' id from dual
+)
+  select * from id_list WHERE not EXISTS (
+  SELECT reference FROM (SELECT CONSUMER_REF AS reference,CVV_RESPONSE_CD FROM CREDIT_CARD_AUTH_LOG WHERE 
+  create_dt BETWEEN TO_DATE('05-20-2020 01:00:00', 'mm-dd-yyyy hh24:mi:ss') AND TO_DATE('05-20-2020 13:00:00', 'mm-dd-yyyy hh24:mi:ss')
+  ) a
+  WHERE reference=id
+  )
