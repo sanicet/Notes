@@ -174,9 +174,17 @@ https://blogs.oracle.com/meena/using-tshark-to-debug-ssl-connections
 zypper install wireshark
 tshark -Y http
 tshark -o "ssl.keys_list:csiws2-test.csidentity.com,443,http,shars.pem" > log01.txt
-/export/home/spjxp427
-/export/home/spjxp427/ shars.pem
-/export/home/spjxp427/log01.txt
+tshark -f "tcp port 443 and host xxx.com or host a.b.c.d" -i eth0 -x -P
+
+Curl
+Without proxy
+curl -H "Accept: application/xml" -H "Content-Type: application/xml" -X POST -k <<url>> -d "<<request>>"
+ 
+with proxy
+ curl -x https://172.18.100.15:18717  -H "Accept: application/xml" -H "Content-Type: application/xml" -X POST -k <<url>> -d "<<request>>"
+ 
+With proxy and client certificate
+curl -x https://172.18.100.15:18717 --cert-type P12 --cert /export/home/xxx/xxx_seckey-new.p12:password --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getLockStatus" --data @/export/home/sxxx/Request.xml <<url>> -v
 
 Oracle
 
@@ -195,3 +203,9 @@ with id_list as (
   ) a
   WHERE reference=id
   )
+  
+  
+
+  
+  
+  
