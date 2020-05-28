@@ -189,7 +189,7 @@ curl -x https://172.18.100.15:18717 --cert-type P12 --cert /export/home/xxx/xxx_
 
 Oracle
 
-Check if a list is not there 
+Check if a list is not there ::::
 
 with id_list as (
   select 'CA562508150' id from dual union all
@@ -205,6 +205,67 @@ with id_list as (
   WHERE reference=id
   )
   
+  
+  Select duplicate row with latest date :::::
+  
+  
+  WITH table1 AS (
+	SELECT
+		AR.CLIENT_CONSUMER_IDENTIFIER,
+		EA.EID_AUTHENTICATION_ID,
+		EA.TRANSACTION_STATUS,
+		EA.ASSESSMENT_PASSED,
+		EA.OVERALL_AUTH,
+		EA.CREATE_DT_TS
+	FROM
+		EID_AUTHENTICATION_EVENT EA,
+		AUTHENTICATION_REQUEST AR
+	WHERE
+		EA.EID_AUTHENTICATION_ID = AR.AUTHENTICATION_EVENT_ID
+		AND ea.AUTHENTICATION_TYPE_ID = AR.AUTHENTICATION_TYPE_ID
+		AND EA.CONSUMER_PARTNER_GRP_ID IN (
+			SELECT
+				CONSUMER_PARTNER_GROUP_ID
+			FROM
+				CONSUMER_PARTNER_GROUP
+			WHERE
+				CONSUMER_PARTNER_GROUP_CD IN (
+					'EFX_CA',
+					'EFXCA_PTNR'
+				)
+		)
+		AND EA.TRANSACTION_STATUS IN (
+			'A',
+			'P',
+			'F',
+			'V',
+			'S',
+			'X'
+		)
+		AND EA.CREATE_DT BETWEEN TO_DATE( '05-26-2020 00:00:00', 'mm-dd-yyyy hh24:mi:ss' ) AND TO_DATE( '05-27-2020 23:59:59', 'mm-dd-yyyy hh24:mi:ss' )
+		AND AR.CLIENT_CONSUMER_IDENTIFIER IN (
+			SELECT
+				CLIENT_CONSUMER_IDNT
+			FROM
+				CONSUMER
+			WHERE
+				CREATE_DT BETWEEN TO_DATE( '05-26-2020 00:00:00', 'mm-dd-yyyy hh24:mi:ss' ) AND TO_DATE( '05-27-2020 23:59:59', 'mm-dd-yyyy hh24:mi:ss' )
+		)
+) SELECT
+	a.*
+FROM
+	table1 a
+INNER JOIN (
+		SELECT
+			CLIENT_CONSUMER_IDENTIFIER,
+			MAX( CREATE_DT_TS ) AS CREATE_DT_TS
+		FROM
+			table1
+		GROUP BY
+			CLIENT_CONSUMER_IDENTIFIER
+	) table2 ON
+	a.CLIENT_CONSUMER_IDENTIFIER = table2.CLIENT_CONSUMER_IDENTIFIER
+	AND a.CREATE_DT_TS = table2.CREATE_DT_TS 
   
 
   
