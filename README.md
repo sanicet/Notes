@@ -267,7 +267,9 @@ INNER JOIN (
 	a.CLIENT_CONSUMER_IDENTIFIER = table2.CLIENT_CONSUMER_IDENTIFIER
 	AND a.CREATE_DT_TS = table2.CREATE_DT_TS 
   
+Reverse proxy and redirect notes:
 
+https://www.akadia.com/services/apache_redirect.html
   
   
   
