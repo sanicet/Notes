@@ -271,5 +271,18 @@ Reverse proxy and redirect notes:
 
 https://www.akadia.com/services/apache_redirect.html
   
-  
+ # Angular
+ #Install angular CLI
+ npm -g @angular/cli
+ #Create a project
+ ng new inspire-attingal-lite-app
+ #Create a server and deploy the above app
+ ng serve
+ #Add bootstrap
+ npm install --save bootstrap
+ #Generate a component
+ ng generate component servers
+ #Data binding
+ String interpolation (data should return a string, it can be a method, one line typesecript code or reference to a variable in typescript component, or actual string itself - {{data}}
+ [property]="data"
   
