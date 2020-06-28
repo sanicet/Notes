@@ -292,4 +292,13 @@ https://www.akadia.com/services/apache_redirect.html
  (event)="function($event) in Html
  and in type script, have a function(event:Event) or function(event:any). To inspect event in console for debugging, add console.log(event) in type script function.
  
-  
+ #Two way data binding
+ Two way databinding allows data to be bind from UI to TypeScript and back. For this use [(ngModel)]="buttonName" to tags. ButtonName is property used for binding two way.
+ 
+ #Directives - direcrtives are instructions to DOM. Component is a form of directive which has template url. There are also directlives which do not have a template. Angular provides some default directive.
+ #ngIf - If and else directive
+ <p *ngIf="serverCreated; else servernotcreatedtext">{{ServerCreationStatus}}</p>
+<ng-template #servernotcreatedtext>
+ <div>
+   <p>default text</p>
+ </div>
