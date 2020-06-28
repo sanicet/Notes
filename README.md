@@ -283,6 +283,13 @@ https://www.akadia.com/services/apache_redirect.html
  #Generate a component
  ng generate component servers
  #Data binding
- String interpolation (data should return a string, it can be a method, one line typesecript code or reference to a variable in typescript component, or actual string itself - {{data}}
- [property]="data"
+ String interpolation (data should return a string, it can be a method, one line typesecript code or reference to a variable in typescript component, or actual string itself - {{data}}. This is normally used in displaying text.
+#HTML property Binding
+[property]="data" - here property is an html attribute of a tag. data is a property in typescript class. this is normally used to change the behaviour of html attributes ( eg disabled in a button).
+ #Event binding
+ (event)="function" - here event is an JS event like onClick, function is a method to execute in your typesrcipt class.
+ #Event Data binding - how to bind event data to TypeStript function
+ (event)="function($event) in Html
+ and in type script, have a function(event:Event) or function(event:any). To inspect event in console for debugging, add console.log(event) in type script function.
+ 
   
