@@ -296,7 +296,7 @@ https://www.akadia.com/services/apache_redirect.html
  Two way databinding allows data to be bind from UI to TypeScript and back. For this use [(ngModel)]="buttonName" to tags. ButtonName is property used for binding two way.
  
  #Directives - direcrtives are instructions to DOM. Component is a form of directive which has template url. There are also directlives which do not have a template. Angular provides some default directive.
- #ngIf - If and else directive
+ #ngIf - If and else directive. This is a structural directives meaning it changes dom element based on conditions. Angular need to know this. Hence append * when calling this directive.
  <p *ngIf="serverCreated; else servernotcreatedtext">{{ServerCreationStatus}}</p>
 <ng-template #servernotcreatedtext>
  <div>
