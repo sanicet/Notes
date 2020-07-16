@@ -19,6 +19,13 @@ git add .
 Task #5 commit a staged change
 git commit -m "added first commit"
 
+//Git Clean untracked files and folders
+ git clean -fd
+ 
+ //Git reset files which is changed.
+ 
+ Git checkout Head <<file> / no options
+
 SSL Certificate commands
 
 To generate an RSA key, use the genrsa command:
