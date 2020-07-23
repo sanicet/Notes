@@ -313,3 +313,7 @@ https://www.akadia.com/services/apache_redirect.html
  <div>
    <p>default text</p>
  </div>
+
+
+https://www.redhat.com/cms/managed-files/cm-oreilly-kubernetes-patterns-ebook-f19824-201910-en.pdf
+https://learning.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html#:~:text=Just%20like%20multiple%20producers%20can,part%20of%20a%20consumer%20group%20.&text=Consumer%20C1%20will%20get%20all%20messages%20from%20all%20four%20T1%20partitions.
