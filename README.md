@@ -317,3 +317,16 @@ https://www.akadia.com/services/apache_redirect.html
 
 https://www.redhat.com/cms/managed-files/cm-oreilly-kubernetes-patterns-ebook-f19824-201910-en.pdf
 https://learning.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html#:~:text=Just%20like%20multiple%20producers%20can,part%20of%20a%20consumer%20group%20.&text=Consumer%20C1%20will%20get%20all%20messages%20from%20all%20four%20T1%20partitions.
+
+Memory analysis
+DT="18 19 20 21 22 23 24 25 26 27 28 29"
+ >/tmp/sar-$(hostname)-multiple.txt	
+ for i in $DT; do
+   LC_ALL=C sar -A  -f /var/log/sa/sa$i >> sar-$(hostname)-multiple.txt
+ done
+ ls -l /tmp/sar-$(hostname)-multiple.txt
+ 
+ 
+ # Use ksar to see it in graph
+ 
+ 
