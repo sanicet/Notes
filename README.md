@@ -329,4 +329,9 @@ DT="18 19 20 21 22 23 24 25 26 27 28 29"
  
  # Use ksar to see it in graph
  
+ GCP PCI Standards
+ https://cloud.google.com/architecture/blueprints/google-cloud-pci-gke-review.pdf
+ https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws.pdf?did=wp_card&trk=wp_card
+ https://aws.amazon.com/compliance/services-in-scope/  
+ https://cloud.google.com/solutions/pci-dss-compliance-in-gcp 
  
