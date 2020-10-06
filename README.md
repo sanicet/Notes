@@ -339,6 +339,11 @@ DT="18 19 20 21 22 23 24 25 26 27 28 29"
  Class less cider block
  10.0.0.0/24 means first 24 bits are frozen and the host address range ( not all  of them can be used) would be 32-24=8 meaning, the first three segment is frozen (10.0.0) and the last segment can be changed from 0-255 giving 256 hostaddress that can be created. So the host address range ( not all  of them can be used) will be from 10.0.0.0 -> 10.0.0.255.
  
+ private ip address network
+ 10.0.0.0/8
+ 172.16.0.0/12
+ 192.168.0.0/16
+ 
  VPC class less cider block
  Maximum number of host address possible in a VPC  = with network mask /16, this will give 2^16=65,536 ip address.
  Minimium number of host address possible in vpc =  with network mask /28, this will give 2^4=16 ip address.
