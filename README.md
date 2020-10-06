@@ -344,9 +344,10 @@ DT="18 19 20 21 22 23 24 25 26 27 28 29"
  172.16.0.0/12
  192.168.0.0/16
  
- VPC class less cider block
+ AWS VPC class less cider block
  Maximum number of host address possible in a VPC  = with network mask /16, this will give 2^16=65,536 ip address.
  Minimium number of host address possible in vpc =  with network mask /28, this will give 2^4=16 ip address.
+ 
  
  
  GCP PCI Standards
@@ -354,4 +355,5 @@ DT="18 19 20 21 22 23 24 25 26 27 28 29"
  https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws.pdf?did=wp_card&trk=wp_card
  https://aws.amazon.com/compliance/services-in-scope/  
  https://cloud.google.com/solutions/pci-dss-compliance-in-gcp 
+ A general recommendation is to have one project per application per environment
  
