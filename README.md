@@ -334,8 +334,14 @@ DT="18 19 20 21 22 23 24 25 26 27 28 29"
  
  IPV4 - 2^4 = 32 Bit | Represented in 4 octet(8 bits) | x.x.x.x | total possible combination = 2^32
  
- IPV6 - 2^6 =128 Bit | Represented in 8 hexadecimal(16 bits / base 16) | x.x.x.x.x.x.x.x | total combination = 2 ^128
+ IPV6 - 2^6 =128 Bit | Represented in 8 hexadecimal(16 bits / base 16) | x.x.x.x.x.x.x.x | total combination = 2 ^128 | shorten ip v6 using  :: meaning it has 1-8 segments with all zeros, the leading zeros in a non zero segment can also be removed for easy reads.
  
+ Class less cider block
+ 10.0.0.0/24 means first 24 bits are frozen and the host address range ( not all  of them can be used) would be 32-24=8 meaning, the first three segment is frozen (10.0.0) and the last segment can be changed from 0-255 giving 256 hostaddress that can be created. So the host address range ( not all  of them can be used) will be from 10.0.0.0 -> 10.0.0.255.
+ 
+ VPC class less cider block
+ Maximum number of host address possible in a VPC  = with network mask /16, this will give 2^16=65,536 ip address.
+ Minimium number of host address possible in vpc =  with network mask /28, this will give 2^4=16 ip address.
  
  
  GCP PCI Standards
