@@ -329,6 +329,15 @@ DT="18 19 20 21 22 23 24 25 26 27 28 29"
  
  # Use ksar to see it in graph
  
+ 
+ #IPV4 and IPV6
+ 
+ IPV4 - 2^4 = 32 Bit | Represented in 4 octet(8 bits) | x.x.x.x | total possible combination = 2^32
+ 
+ IPV6 - 2^6 =128 Bit | Represented in 8 hexadecimal(16 bits / base 16) | x.x.x.x.x.x.x.x | total combination = 2 ^128
+ 
+ 
+ 
  GCP PCI Standards
  https://cloud.google.com/architecture/blueprints/google-cloud-pci-gke-review.pdf
  https://d1.awsstatic.com/whitepapers/compliance/pci-dss-compliance-on-aws.pdf?did=wp_card&trk=wp_card
