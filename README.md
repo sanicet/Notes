@@ -357,3 +357,16 @@ DT="18 19 20 21 22 23 24 25 26 27 28 29"
  https://cloud.google.com/solutions/pci-dss-compliance-in-gcp 
  A general recommendation is to have one project per application per environment
  
+ Transferring backup tape data questions
+	What is the current size?
+	What is the current policy?
+	How are we planning to transfer the tape data to GCP? Using transfer service or appliance. If it is transfer service, how is it transfereed from tape to VM.
+	What is the current backup policy?
+	Is this going to be an ongoing job?
+	Which enryption are we planning to use?
+	Which project in GCP , would be the data go into?
+	How do we get the data if we need to restore from backup tape and what is current SLA vs new one?
+	How are we planning to store the data? in each bucket with object?
+	Security advisement needed as it has class 5 data.
+
+ 
