@@ -88,12 +88,12 @@ Zonal Resources section
  Ec2
  Redshift Cluster
  RDS instances
- S3 IA
+ S3 one zone 1A
  Subnets
  
 Regional scoped Resources ( Desined for HA and FT)
  All AWS Service end points ( IAM, EC2 service etc)
- S3 ( Except 1A)
+ S3 ( Except  one zone 1A)
  VPC
  CloudWatch
  Elastic load Balancers
