@@ -82,9 +82,36 @@ CloudFront - All Good
 Route53 - All good.
 
 
-
-
+Zonal Resources section
+ EBS Volume
+ Nat Gateway
+ Ec2
+ Redshift Cluster
+ RDS instances
+ S3 IA
+ Subnets
  
+Regional scoped Resources ( Desined for HA and FT)
+ All AWS Service end points ( IAM, EC2 service etc)
+ S3 ( Except 1A)
+ VPC
+ CloudWatch
+ Elastic load Balancers
+ AutoScalingService
+ 
+Multiple region supported resources.
+S3 cross region replication
+RDS cross region read replication
+DynamoDb - Replication
+AWS Edge location
+
+AWS Global supported services
+ClodFront53
+Route53
+WAF filtering rules
+Lambda@Edge
+Route53- > ClodFront53 - > WAF filtering rules - > Lambda@Edge
+
  
  
  
