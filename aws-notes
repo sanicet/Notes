@@ -3,7 +3,8 @@ Fault tolerant - Highly available with no degredation of performance.
 Resilant - The power or ability of a material to return to its original form
 Availability - Determined by the percentage of uptime (SLA in 9s) of a purticular resource.
 Redundant - Mutiple resources performing same task
-
+SLA can be found in - Well architected reliability whitepaper framework pages 54-58 / aws.amazon.com/<service>/sla
+Route53 health check graph can give you your application's SLA
 
 
 HA resilancy notes
