@@ -14,7 +14,9 @@ Network ( VPC)
                             be configured with two tunnels.
  Nat Gateway - Highly available but blongs on one AZ. Best practice is to deploy different NAT Gateway for different Subnet and configure different routing tables for
                each subnet with corresponding gateway routes.There will be short interuption of service if underlying hardware of nat gateway goes off. AWS will replace it with new one.
-               
+
+ 
+ 
  Compute
  
  Elastic Load Balancers - Select eleastic load balancers to deploy into atleast two AZ.(99.99 Availabilty SLA)
@@ -28,8 +30,32 @@ Network ( VPC)
             - Only support Mysql and Postgres with purticular versions.
             - Self healing, Auto scalable
   
+ AWS Serverless Resilant Architecture
+               
+ DNS
+ Route53 - This has 100% SLA with global scope. If it is down, Amazon will pay you.
  
- Deploying a serverless application
+ CDN
+ CloudFront - This has 99.99% SLA with global scope.  
+ 
+Storage:
+ S3 - Bucket is regional but objects have to choosen to be anything other than one zone. 99.99% SLA
+
+API Front end
+API Gateway - Same as S3
+
+Authentication and Authorization
+Amazone Cognito - Regional , 99.99. Can be integrated with API Gateway for user authentication.
+
+Compute functions
+Lambda -Regional , 99.95% SLA
+
+Database ( No SQL)
+Dynamo DB - Regional, 99.99% SLA
+
+
+
+
  
  
  
