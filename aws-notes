@@ -20,7 +20,7 @@ Network ( VPC)
  Virtual Private Gateway - Highly available but not redundent. There is two tunnels deployed in active passive mode in two different AZ.
                             At a time only one of them will be active. Route table should be configured to dynamically pull the routes incase of any failure with one tunnel. 
                             Resilancy will also depend on the complimentary connections and router ( dynamic or static) used in datacenter. The datacenter Customer Gateway should 
-                            be configured with two tunnels.
+                            be configured with two tunnels.If there is a HW outage, it will cause short interuption of service.
  Nat Gateway - Highly available but blongs on one AZ. Best practice is to deploy different NAT Gateway for different Subnet and configure different routing tables for
                each subnet with corresponding gateway routes.There will be short interuption of service if underlying hardware of nat gateway goes off. AWS will replace it with new one.
                Note that Nat instance is deployed into EC2 and may not be a good idea when resilancy is a problem.
@@ -61,6 +61,25 @@ Lambda -Regional , 99.95% SLA
 
 Database ( No SQL)
 Dynamo DB - Regional, 99.99% SLA
+
+Highly available / Fault tolarent section
+
+Cache
+ElasticCache - This is backed up by Ec2. Service is highly available but not fault tolerant or redundant.
+
+Redshift - This is desined to be highly performance and is only in one AZ. So it is not HA.
+
+RDS Multi AZ - If primary become degraded or patches, then AWS will failure to read only. But it is not fault tolarent. There will be a interuption in service.
+
+S3 - Servlerless. All good.
+
+DynamoDb - All good.
+
+APIGateway - All Good.
+
+CloudFront - All Good
+
+Route53 - All good.
 
 
 
