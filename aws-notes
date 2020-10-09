@@ -1,5 +1,9 @@
 HA resilancy notes
-VPC
+
+Deploying a 3 tier Architecture for Highly available
+
+Network ( VPC)
+
  AZ - Deploy the compute resources in atleast two AZ for resilancy
  Internet gateway - attached to vpc, highly available , redundent and horizontally scalbale
  VPC Peering connection - No underlying hardware, No bottleneck for scaling the traffic
@@ -8,6 +12,27 @@ VPC
                             At a time only one of them will be active. Route table should be configured to dynamically pull the routes incase of any failure with one tunnel. 
                             Resilancy will also depend on the complimentary connections and router ( dynamic or static) used in datacenter. The datacenter Customer Gateway should 
                             be configured with two tunnels.
- Nat Gateway - Highly available but blongs on one AZ. Best practice is to deploy different NAT Gateway for different Subnet and configure different routing tables for each subnet with corresponding gateway routes.
+ Nat Gateway - Highly available but blongs on one AZ. Best practice is to deploy different NAT Gateway for different Subnet and configure different routing tables for
+               each subnet with corresponding gateway routes.There will be short interuption of service if underlying hardware of nat gateway goes off. AWS will replace it with new one.
+               
+ Compute
  
+ Elastic Load Balancers - Select eleastic load balancers to deploy into atleast two AZ.(99.99 Availabilty SLA)
+ Auto Scaling - Like load balancing can deploy into multiple AZ. Service is  (99.99 Availabilty SLA) but indvidual compute SLA is 90% SLA. So stateful application will have inflight transaction 
+                impact.
+                
+ Database
+ RDS - RDS can be deployed into Multiple AZ but supports only single write end point only available in one zone. Multiple reads are supported. 99.95% uptime. This is where RDS Arrora comes in.
+ 
+ RDS Arrora - Can be deployed into Multiple AZ , supports writes in all nodes while being consistant. Availlability is increased to 99.99% Uptime. 
+            - Only support Mysql and Postgres with purticular versions.
+            - Self healing, Auto scalable
+  
+ 
+ Deploying a serverless application
+ 
+ 
+ 
+ 
+  
  
