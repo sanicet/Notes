@@ -1,2 +1,13 @@
 HA resilancy notes
 VPC
+ AZ - Deploy the compute resources in atleast two AZ for resilancy
+ Internet gateway - attached to vpc, highly available , redundent and horizontally scalbale
+ VPC Peering connection - No underlying hardware, No bottleneck for scaling the traffic
+ VPC End points - Similar to VPC Peering connection
+ Virtual Private Gateway - Highly available but not redundent. There is two tunnels deployed in active passive mode in two different AZ.
+                            At a time only one of them will be active. Route table should be configured to dynamically pull the routes incase of any failure with one tunnel. 
+                            Resilancy will also depend on the complimentary connections and router ( dynamic or static) used in datacenter. The datacenter Customer Gateway should 
+                            be configured with two tunnels.
+ Nat Gateway - Highly available but blongs on one AZ. Best practice is to deploy different NAT Gateway for different Subnet and configure different routing tables for each subnet with corresponding gateway routes.
+ 
+ 
