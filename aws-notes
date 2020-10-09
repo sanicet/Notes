@@ -118,5 +118,5 @@ Decoupling components
 Loadbalancers - For DR scenarios, deploy the components in two different regions with two different load balancers pointing to Autoscaling group. The router can be set up with different 
                 options to support active active or passive set up. In case of both the regions are down, the router can also point to S3 bucket for a static message.
  
-  
+ Client-sns-sqs-autoscaling - This is mentioned but needs to be tried out on how SNS can be used to get client requests. SNS is a push based service , so it can probabliy 
  
