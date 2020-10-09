@@ -149,5 +149,7 @@ Salabaility and Elasticity
 
 EBS vloume size is scalable but not eleastic
 unified AutoScaling template allows versioning and can be used to launch auto scaling groups, ECS, Arora read replica. T
-hey are eleastic and even can be configured to be elastic based on a prediction with different options of keeping maximum scaling to hard limit or equal, above or within a buffer to predictable capacity
+hey are eleastic and even can be configured to be elastic based on a prediction with different options of k
+eeping maximum scaling to hard limit or equal, above or within a buffer to predictable capacity. They can be also used to scale read/write dynamo DB.
+Eleastic managed services for application examples - API gateway, ECS on Fargate, EC2 on Autoscaling, Dynamo DB with Autoscaling for database, Lamda for computing, S3 for storage
 
