@@ -14,7 +14,7 @@ Network ( VPC)
                             be configured with two tunnels.
  Nat Gateway - Highly available but blongs on one AZ. Best practice is to deploy different NAT Gateway for different Subnet and configure different routing tables for
                each subnet with corresponding gateway routes.There will be short interuption of service if underlying hardware of nat gateway goes off. AWS will replace it with new one.
-
+               Note that Nat instance is deployed into EC2 and may not be a good idea when resilancy is a problem.
  
  
  Compute
