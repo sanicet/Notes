@@ -120,3 +120,25 @@ Loadbalancers - For DR scenarios, deploy the components in two different regions
  
  Client-sns-sqs-autoscaling - This is mentioned but needs to be tried out on how SNS can be used to get client requests. SNS is a push based service , so it can probabliy 
  
+Storage:
+Instance volume storage - this is an antipattern for resilancy.
+EBS - AZ scoped block storage. Kept redundent by replicating automatically to two different EBS in the same AZ. Availability : 4 9s. Durability .1-.2% failure.
+      To make it rgional, use point in time snapshot and store it in S3. 
+      If possible, do the snapshot back up to two different account so that even if one is gained by attacker, the data can be retreived from another account.
+      
+EFS - Region scope. Availability : 3 9s and Durability 11 9s. No published data for mount points and mount points are associated with subnets.AWS back up ( take the backup and store to AWS vault) 
+                                   or AWS data sync can splicate the data into different region.
+                                   
+S3
+ S3 standard - Region scope. 4 9s of availability and 11 9s of durabilty.
+ S3 IA  - Region scope. 3 9s of availability and 11 9s durabilty.
+ S3 Inteligent tier - This is a workload and not storage class. The numbers are similar to S3 IA.
+ S3 One zone IA - Only one zone. Replicated to 3 times in same az. Durabiulity is same but avialability is 9.95
+ 
+   To improve the durability, create another bucket in another region with versioning enabled. Then enable bucket versioning and cross region replications. 
+    This only replicate the objects that  are created or updated after the replication is enabled. you still needs to copy the existing data.
+    
+ S3 Glacier - Region, numbers are identical to S3 standard. The latency can be from few minutes to few hours. 
+ S3 Glacier Deep archieve - Same numbers but the latency is 12 hours
+
+
