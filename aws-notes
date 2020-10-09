@@ -113,7 +113,10 @@ Lambda@Edge
 Route53- > ClodFront53 - > WAF filtering rules - > Lambda@Edge
 
  
- 
+Decoupling components
+
+Loadbalancers - For DR scenarios, deploy the components in two different regions with two different load balancers pointing to Autoscaling group. The router can be set up with different 
+                options to support active active or passive set up. In case of both the regions are down, the router can also point to S3 bucket for a static message.
  
   
  
