@@ -143,4 +143,11 @@ S3
  S3 Glacier - Region, numbers are identical to S3 standard. The latency can be from few minutes to few hours. 
  S3 Glacier Deep archieve - Same numbers but the latency is 12 hours
 
+Performance :
+
+Salabaility and Elasticity
+
+EBS vloume size is scalable but not eleastic
+AutoScaling template allows versioning and can be used to launch auto scaling groups, ECS, Arora read replica. T
+hey are eleastic and even can be configured to be elastic based on a prediction with different options of keeping maximum scaling to hard limit or equal, above or within a buffer to predictable capacity
 
