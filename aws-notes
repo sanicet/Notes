@@ -153,3 +153,22 @@ hey are eleastic and even can be configured to be elastic based on a prediction 
 eeping maximum scaling to hard limit or equal, above or within a buffer to predictable capacity. They can be also used to scale read/write dynamo DB.
 Eleastic managed services for application examples - API gateway, ECS on Fargate, EC2 on Autoscaling, Dynamo DB with Autoscaling for database, Lamda for computing, S3 for storage
 
+
+Database :
+
+DB can be deployed in EC2 with EBS Volumes with a custom volume manager  - this is a high performant but low recillancy design and high management overhead.. 
+
+Use RDS with read replica to another AZ. - This will take care of reads but not writes
+
+Use Aurora - This will limit the choise to MYSQL and POSTGRES but will give multi master read and write. Using high configuration instance will incrase the performance.
+
+Use Arora serverless - This will give an option for auto scaling and managing from aws.
+
+
+
+
+
+
+
+
+
