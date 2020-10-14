@@ -164,6 +164,10 @@ Use Aurora - This will limit the choise to MYSQL and POSTGRES but will give mult
 
 Use Arora serverless - This will give an option for auto scaling and managing from aws.
 
+Dynamo DB - Use srverless and partition key which is widly distributed for read enhanced performance. Use global table if applications is multi regional.
+
+Dynamo DB Dax - Use this for caching to improve read performance.
+
 
 
 
