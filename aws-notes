@@ -307,9 +307,16 @@ Design for Operations:
  >Apply metadata using Resource Tags and AWS Resource Groups following a consistent tagging strategy (https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf)
  
 
-Mitigate Deployment Risks
-
-
+Mitigate Deployment Risks 
+ > Plan for unsuccessful changes
+ > Test and validate changes:
+ > Use deployment management systems
+ > Test using limited deployment / Deploy using parallel environments:
+ > Deploy frequent, small, reversible changes:
+ > Fully automate integration and deployment
+ > Automate testing and rollback:
+ 
+Operational Readiness
 
 
 
