@@ -317,9 +317,26 @@ Mitigate Deployment Risks
  > Automate testing and rollback:
  
 Operational Readiness
-
-
-
+ > You should use a consistent process (including manual or automated checklists) to know when you are ready to go live with your workload or a change. This will also enable you to find any areas that you need
+  to make plans to address. You will have runbooks that document your routine activities and playbooks that guide your processes for issue resolution.
+ > Ensure personnel capability:
+ >Ensure consistent review of operational readiness
+  > AWS Config : You should automate workload configuration testing by making baselines
+  > AWS Config rules : checking your configurations with baseline
+  >  AWS Security Hub: You can evaluate security requirements and compliance using the services and features of security hub.AWS Security Hub gives you a comprehensive view of your security alerts and security posture across your AWS accounts.
+ >Use runbooks to perform procedures:
+ >Use playbooks to identify issues:
+ >Automate run book and play book
+   AWS System manager( automate Run books or play book) 
+   Lambda - respond to events
+   AWS Step Functions - Orchestrate different aws services
+   Trigger : AWS Cloudwatch evets
+   AWS EventBridge : Support systems
+  >Do pre mortem
+  
+  
+ 
+ 
 
 
 
