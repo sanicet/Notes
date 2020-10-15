@@ -170,6 +170,9 @@ Dynamo DB Dax - Use this for caching to improve read performance.
 
 aws well architecture framework
 
+Enable:
+ Lab :https://wellarchitectedlabs.com/
+
 > By using the Framework you will learn architectural best practices for designing and operating reliable, secure, efficient, and cost-effective systems in the cloud
 > The AWS Well-Architected Tool (AWS WA Tool) is a service in the cloud that provides a consistent process for you to review and measure your architecture using the AWS Well-Architected Framework
 > AWS Trusted Advisor is an online tool that provides you real time guidance to help you provision your resources following AWS best practices
@@ -216,7 +219,7 @@ aws well architecture framework
     
     Videos:
     https://www.youtube.com/watch?v=bGBVPIpQMYk&feature=youtu.be
-    https://www.youtube.com/watch?v=u8u9DXwNoIs&t=
+    https://www.youtube.com/watch?v=u8u9DXwNoIs&t= > Enable (Automating  multiple accounts users and infra)   + Provision (Add or deleted to the environment)  + Operation
     
     >  Operation with Agility tools offered by AWS
      
@@ -224,12 +227,19 @@ aws well architecture framework
        
        Monitor : AWS cloudwatch
        Audit - AWS config ( infra config auditor) , AWS CloudTrail ( who did what?)
-       Manage resources at scale - AWS System manager
-       Optimize cost and resources : AWS Trusted architect, AWS Cost explorer, AWS cost and usage report
+       Manage resources at scale - AWS System manager ( patch management)
+       Optimize cost and resources : AWS Trusted advisor, AWS Cost explorer, AWS cost and usage report
        
+   AWS Training resources:
+   AWS provides resources, including the AWS Getting Started Resource Center, AWS Blogs, AWS Online Tech Talks, AWS Events and Webinars, and the AWS WellArchitected Labs, that provide guidance, examples, and detailed walkthroughs to
+   educate your teams.AWS also shares best practices and patterns that we have learned through the operation of AWS in The Amazon Builders' Library and a wide variety of other useful
+   educational material through the AWS Blog and The Official AWS Podcast.You should take advantage of the education resources provided by AWS such as the Well-Architected labs, AWS Support (AWS Knowledge Center, AWS Discussion Forms,
+   and AWS Support Center) and AWS Documentation to educate your teams. Reach out to AWS Support through AWS Support Center for help with your AWS questions. AWS Training and Certification provides some free training through self-paced digital
+   courses on AWS fundamentals. You can also register for instructor-led training to further support the development of your teams’ AWS skills.
    
 
-
+Prepare:
+ > 
 
 
 
