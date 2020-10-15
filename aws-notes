@@ -286,14 +286,14 @@ CI/CD automation
   Notification - SNS
   Invoke logic - Lambda
   AWS CodePipeline - Define SDLC workflow of the code CI/CD pipeline by combining all the above steps.It is better to have seperate pipeline for application code and infra strucutre code. Infrastructure code, even can be seperated into networking and others if needed.
-  AWS cloudformation - Infrastructure as code templates. 
+  AWS cloudformation, Serverless application model (SAM) - Infrastructure as code templates. 
 
    
 
 Design for Operations:
  > workload : applications, infrastructure, policy, governance, and operations - Treat this as code
  > Use version control: AWS code commit
- > Use IAAC : AWS Cloudformation or OpsWorks and BeanStack 
+ > Use IAAC : AWS Cloudformation Serverless application model (SAM) or OpsWorks and BeanStack
  > Test and validate changes: Create temporary parallel environment
  > Use build and deployment management systems : Use https://aws.amazon.com/products/developer-tools/
  > Perform patch management: AWS Systems Manager Patch Manager ( Automate), AWS Systems Manager maintanance windows (Schedule patch) , AWS 
