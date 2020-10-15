@@ -217,6 +217,16 @@ aws well architecture framework
     Videos:
     https://www.youtube.com/watch?v=bGBVPIpQMYk&feature=youtu.be
     https://www.youtube.com/watch?v=u8u9DXwNoIs&t=
+    
+    >  Operation with Agility tools offered by AWS
+     
+       Operation -  Monitor, Audit, Automate Operational actions,  continous improvment to optimize cost, architecture etc.
+       
+       Monitor : AWS cloudwatch
+       Audit - AWS config ( infra config auditor) , AWS CloudTrail ( who did what?)
+       Manage resources at scale - AWS System manager
+       Optimize cost and resources : AWS Trusted architect, AWS Cost explorer, AWS cost and usage report
+       
    
 
 
