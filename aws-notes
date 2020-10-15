@@ -270,8 +270,11 @@ Prepare:
       AWS X-Ray: to collect and record traces as transactions travel through your workload
 
 CI/CD automation
+  Image : AMI ( Linux)  , EC2 image builder( Windows)
   Code commit : AWS code commit , or git hub etc, S3
-  Build -Jenkins / any third party
+  Build -Jenkins / any third party / AWS CloudBuild
+  Artifact store : AWS codeArtifacts
+  Amazon Elastic Container Registry: Store images
   Test - Any Thirdparty 
   Deploy :
     Code:
@@ -287,14 +290,24 @@ CI/CD automation
 
    
 
+Design for Operations:
+ > workload : applications, infrastructure, policy, governance, and operations - Treat this as code
+ > Use version control: AWS code commit
+ > Use IAAC : AWS Cloudformation or OpsWorks and BeanStack 
+ > Test and validate changes: Create temporary parallel environment
+ > Use build and deployment management systems : Use https://aws.amazon.com/products/developer-tools/
+ > Perform patch management: AWS Systems Manager Patch Manager ( Automate), AWS Systems Manager maintanance windows (Schedule patch) , AWS 
+ > Share design standards:> Many AWS services and resources are designed to be shared across accounts, enabling you to share created assets and learnings across your teams. For example, you can share CodeCommit repositories,
+   Lambda functions, Amazon S3 buckets, and AMIs to specific accounts.
+ > When you publish new resources or updates, use Amazon SNS to provide cross account notification .Subscribers can use Lambda to get new versions
+> Implement practices to improve code quality: Implement practices to improve code quality and minimize defects. For example, test-driven development, code reviews, and standards adoption.
+> Use multiple environments: Use multiple environments to experiment, develop, and test your workload.Use increasing levels of controls as environments approach production to gain confidence your workload
+ will operate as intended when deployed.
+ >Make frequent, small, reversible changes:
+ >Apply metadata using Resource Tags and AWS Resource Groups following a consistent tagging strategy (https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf)
+ 
 
-
-
-
-
-
-
-
+Mitigate Deployment Risks
 
 
 
