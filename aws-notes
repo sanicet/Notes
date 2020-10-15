@@ -269,7 +269,23 @@ Prepare:
     
       AWS X-Ray: to collect and record traces as transactions travel through your workload
 
+CI/CD automation
+  Code commit : AWS code commit , or git hub etc, S3
+  Build -Jenkins / any third party
+  Test - Any Thirdparty 
+  Deploy :
+    Code:
+     AWS code deploy - AWS CodeDeploy is a service that automates code deployments to any instance, including Amazon EC2 instances and instances running on-premises    
+     AWS Elastic bean stack - Fully managed service to Deploy the code . provision of infrastructure ( like load balancers) will be taken care by aws. Developers will still have control on the infra created.
+    Infra:
+     AWS Cloud formation - IAAC
+     AWS OpsWorks - Managed chef and pupput instance for automation
+  Notification - SNS
+  Invoke logic - Lambda
+  AWS CodePipeline - Define SDLC workflow of the code CI/CD pipeline by combining all the above steps.It is better to have seperate pipeline for application code and infra strucutre code. Infrastructure code, even can be seperated into networking and others if needed.
+  AWS cloudformation - Infrastructure as code templates. 
 
+   
 
 
 
