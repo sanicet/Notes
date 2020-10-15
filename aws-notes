@@ -34,6 +34,8 @@ Network ( VPC)
  Auto Scaling - Like load balancing can deploy into multiple AZ. Service is  (99.99 Availabilty SLA) but indvidual compute SLA is 90% SLA. So stateful application will have inflight transaction 
                 impact.
                 
+ CAAS - ECS, EKS, Fargate(Serverless ECS/EKS mode)
+                
  Database
  RDS - RDS can be deployed into Multiple AZ but supports only single write end point only available in one zone. Multiple reads are supported. 99.95% uptime. This is where RDS Arrora comes in.
  
