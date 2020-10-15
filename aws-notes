@@ -239,12 +239,35 @@ Enable:
    
 
 Prepare:
- > 
+ Design Telemetry:
+   Application telemetry: Instrument your application code to emit information about its internal state, status, and achievement of business outcomes, for example, queue depth, error messages,
+      and response times. Use this information to determine when a response is requd.
+   
+      Unified Amazon CloudWatch Logs Agent - Use it to capture system logs and advanced metrics from EC2 instances.
+      Logs
+        Application -> directly -> cloudWatch logs API
+        AWS Lamda -> sysout automatic- > Cloudwatch logs
+      Events
+        Application->AWS SDK -> Amazone event Bridge
+        
+  Workload telemetry:
+     : Design and configure your workload to emit information about its internal state and current status. For example, API call volume, HTTP status codes,and scaling events. Use this information to help determine when a response is required.
+     AWS CloudTrail -> AWS Cloudwatch
+     VPC Flow logs -> AWS Cloudwatch
+     AWS Lambda metrics -> AWS Cloudwatch
+   
+   Implement user activity telemetry:
+      :Instrument your application code to emit information about user activity, for example, click streams, or started, abandoned, and completed transactions. Use this
+      information to help understand how the application is used, patterns of usage, and to determine when a response is required.
+      
+   Implement dependency telemetry: 
+     Design and configure your workload to emit information about the status (for example, reachability or response time) of resources it depends on. Examples of external
+     dependencies can include external databases, DNS, and network connectivity. Use this information to determine when a response is required.
 
-
-
-
-
+  Implement transaction traceability: Implement your application code and configure your workload components to emit information about the flow of transactions across the workload. Use this
+    information to determine when a response is required and to assist you in identifying the factors contributing to an issue.
+    
+      AWS X-Ray: to collect and record traces as transactions travel through your workload
 
 
 
