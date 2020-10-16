@@ -341,15 +341,42 @@ Operational Readiness
   
   Operate
      
-    Understanding Workload Health:
-     
+    > Identify key performance indicators: Identify key performance indicators (KPIs) based on desired business outcomes (for example, order rate, customer retention rate, and profit versus operating expense) and customer outcomes (for example, customer
+    satisfaction). Evaluate KPIs to determine workload success.
+    
+    > Define workload metrics: Define workload metrics to measure the achievement of KPIs (for example, abandoned shopping carts, orders placed, cost, price, and allocated workload expense). Define workload metrics to measure the health of the workload (for
+     example, interface response time, error rate, requests made, requests completed, and utilization). Evaluate metrics to determine if the workload is achieving desired outcomes, and to understand the health of the workload.
+    
+    >Collect and analyze workload metrics:
+      AWS cloud watch - use it as a log agrregater and create metricks from it and measure it against KPis
+      AWS Personal Health Dashboard > . This dashboard provides alerts and remediation guidance when AWS is experiencing events that might affect you.
+      AWS Health API > Customers with Business and Enterprise Support subscriptions also get access to the , enabling integration to their event management systems.
+
+     Logs
+      Workload, Audit -> cloudwatch -> export -> S3 -> discover and prepare data (AWS Glue) to data catelog -> Amazon Athena ( ANalyse using SQL) -> Amazon quick sight ( visualization tool)
+      alternate solution : Workload -> ELK/EFK
       
+        AWS Glue is a fully managed data catalog and ETL (extract, transform, and load) service that simplifies and automates the difficult and time-consuming tasks of data discovery, conversion, and job scheduling. AWS Glue crawls your data sources and constructs a data catalog using pre-built classifiers for popular data formats and data types, including CSV, Apache Parquet, JSON, and more.
+        Because AWS Glue is integrated with Amazon S3, Amazon RDS, Amazon Athena, Amazon Redshift, and Amazon Redshift Spectrum—the core components of a modern data architecture—it works seamlessly to orchestrate the movement and management of your data.
+        
+        Amazon Atehena - Analysis using SQL.
+        
+        Amazon QuickSight -  you can visualize, explore, and analyze your data.
+        
+        in AWS, you can improve recovery time by replacing failed components with known good versions, rather than trying to repair them
+       
+        On AWS, you can use AWS Systems Manager OpsCenter as a central location to view, investigate, and resolve operational issues related to any AWS resource. It aggregates
+       operational issues and provides contextually relevant data to assist in incident response.
+       
+       You should use CloudTrail to track API activity (through the AWS Management Console, CLI, SDKs, and APIs) to know what is happening across your accounts
+       
+       Track your AWS Developer Tools deployment activities with CloudTrail and CloudWatch. This will add a detailed activity history of your deployments and their outcomes to your
+       CloudWatch Logs log data.
+       
+       
 
- 
- 
 
-
-
+        
 
 
 
