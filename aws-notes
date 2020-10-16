@@ -374,13 +374,46 @@ Operational Readiness
        CloudWatch Logs log data.
        
        
+Cost Optimization Pillar
+ 
+       Adopt a consumption model: 
+        > Pay only for the computing resources you consume,and increase or decrease usage depending on business requirements. For example,development and test environments are typically only used for eight hours a day during
+        the work week
 
+       Measure overall efficiency
+       Stop spending money on undifferentiated heavy lifting:
+       Analyze and attribute expenditure
+      
+      focus areas for cost optimization in the cloud:
+      
+       You can use AWS Cost Explorer to forecast daily (up to 3 months) or monthly (up to 12 months) cloud costs based on machine learning algorithms applied to your historical
+       costs (trend based).
+       
+       AWS Cost Explorer provides dashboards and reports. You can track your progress of cost and usage against configured budgets with AWS Budgets Reports. You can also use Amazon QuickSight with Cost and Usage Report (CUR) data, to
+       provide highly customized reporting with more granular daata
+       
+       You may be able to implement new AWS services and features to increase cost efficiency in your workload. Regularly review the AWS News Blog, the AWS Cost Management blog, and What’s New with AWS for
+       information on new service and feature releases.
+       
+       Within AWS Organizations, consolidated billing creates the construct between one or more member accounts and the master account. Member accounts allow you to isolate 
+       Amazon Web Services Cost Optimization Pillar 12and distinguish your cost and usage by groups. A common practice is to have separatemember accounts for each organization unit (such as finance, marketing, and sales), or
+       for each environment lifecycle (such as development, testing and production), or foreach workload (workload a, b, and c), and then aggregate these linked accounts usingonsolidated billing. 
+        
+        
+       As costs and usage are aggregated in the master account, this allows you to maximize your service volume discounts, and maximize the use of your commitment discounts (Savings Plans and Reserved Instances) to achieve the highest
+       discounts.
+       
+       In AWS, notifications are conducted with AWS Budgets, which allows you to define a monthly budget for your AWS costs, usage, and commitment discounts (Savings Plans and Reserved Instances).
 
+       You can use AWS Auto Scaling to perform the decommissioning process. You can also implement custom code using the API or SDK to decommission workload resources automatically
+
+        You can also use the AWS Simple Monthly Calculator or the AWS Pricing Calculator to estimate workload costs
+
+        You can use AWS License Manager to manage the software licenses in your workload. 
+        
+        AWS Compute Optimizer can assist with cost modeling for running workloads. It provides right-sizing recommendations for compute resources based on historical  Amazon Web Services Cost Optimization Pillar 22 usage.
         
 
-
-
-
-
+       Select the Best Pricing Model
 
 
