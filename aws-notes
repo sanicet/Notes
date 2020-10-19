@@ -530,15 +530,95 @@ Plan for Data Transfer
     Stoarge:
     
      Object Store : S3 ( Simple storage Service) 
-      File can be from 0 bytes to 5TB
-      Http 200 when you upload a file to S3
       S3
        Buckets
         Objects
+        
+      Bucket Features:
+       Storage Type
+       Lifecycle Management
+       Versioning
+       Encryption
+       Bucket Policies
+       MFA Delete ( Protect Object)
+       Cross region replication
+       Transfer Acceleration( Using cloudfront to upload object by users and making use of AWS network)
+      
+      Object Structure:
+             Key
+       ACL   Value       VersionID
+             Meta-data
+             torrents      
+      
       Consistancy:
+       Read after write policy
+       Eventual consistancy for Put and delete
        
-   
-   
+      Availablity: 99.9% and 99.5% ( S3 IA-1Z),  Durability 99.119%
+      Latency : Milliseconds -> 12 hours depnding on storage class
+      
+      S3 Tier:
+       Standard
+       S3 Infrequent Acceess ( 1 Month Minimum with retrieval fee)
+       S3 Infrequent Access 1AZ ( 99.95 availability,1 Month Minimum with retrieval fee))
+       S3 Intelligent Tier (1 Month Minimum)
+       S3 Glacier ( configurable Minutes to hours retreival time ,  3  months min with retrieval fee))
+       S3 Glacier Deep Archieve ( 12 hour retrieval time,  6 Months min with retrieval fee))
+       
+      
+   Points to note :
+    Not suetable for operating system. You should use block stoarge for that purpose.
+    File can be from 0 bytes to 5TB. Largest single Put can transfer upto 5 GB after that use multipart.
+    Http 200 when you upload a file to S3.
+    This is a regional resource. Users can select the region.
+    Security and complience:
+     Access
+      Customers may use four mechanisms for controlling access to Amazon S3 resources: Identity and Access Management (IAM) policies,
+      bucket policies, Access Control Lists (ACLs), and Query String Authentication (With Query String Authentication, customers can create a URL to an Amazon S3 object which is only valid for a limited tim)
+      Amazon VPC Endpoint for Amazon S3 is a logical entity within a VPC that allows connectivity only to S3. You can configure the specific VPC end point using AWS S3 bucket policies.
+     Encryption:
+      SSE-S3 -Use default S3 key to encrypt and decrypt. Managed by AWS
+      SSE-C - Use customer supplied key to encrypt and decrypt. Customer manages and supplys keys to AWS during opeartion
+      SSE-KMS - Use Key managed by Customer in AWS KMS. 
+      Client Library - Client encrypts the object before storing. Fully owned by client. AWS S3 encryption client can be used.
+     Audit:
+      S3 object access can log into cloud trail
+      Access Analyzer for S3 alerts you when you have a bucket that is configured to allow access to anyone on the internet or that is shared with other AWS accounts
+     GDPR:
+      Choose your EU region
+      Choose AWS S3 on Outpost(On premise S3 solution managed by AWS)
+     PII
+      Amazon Macie - Uses AI to lookn for PII
+      
+     Services around S3
+     
+     Query and Analyse:
+          Amazon Macie : To identify PII data
+          Amazon Athena : Analalyse objects using Query service on top of S3 using Sql 
+          Amazon S3 Select: Retreive part of an object using SQL query language to a dataset
+          Amazon Redshift: enables you to run queries against exabytes of unstructured data in Amazon S3 with no loading or ETL required      
+          S3 Access analyser : Analyse the access to S3 Bucket
+          
+     Notification:
+       S3 Event notification : Sents events to SNS, SQS, Lambda for S3 Http methods
+       
+      Transfer Objects to S3:
+           Using S3 standard https url            
+           Amazon CloudFront’s PUT/POST : 
+            Consider for Data < 1 GB
+           S3 Transfer Acceleration :
+                 to Upload S3 object Quickly using cloudfront. Once enabled, it will give transfer acceleration end point which can be used by client to put objects
+                access restriction based on a client’s IP address, are supported as well
+                GB-> TB
+                AWS has expanded its HIPAA compliance program to include Amazon S3 Transfer Acceleration as a HIPAA eligible service
+          AWS Snow Family: 
+            Use it for large batch one time transfers. Usual turn around time is 5-7 days.Consider this timeframe when designing solution by comparing the network speed.
+           Snow ball
+           Snow ball Edge
+           Snow Mobile
+         AWS Storage Gateway:
+           This is a sync up solution between on prem and S3 . It can use ( complement) S3 transfer acceeleration for efficiency.
+       
             
             
             
