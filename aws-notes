@@ -415,5 +415,64 @@ Cost Optimization Pillar
         
 
        Select the Best Pricing Model
+       AWS has multiple pricing models that allow you to pay for your resources in the most cost-effective way that suits your organization’s needs. The following section describes each purchasing model
 
+            .On-Demand
+              OnDemand has an hourly rate, but depending on the service, can be billed in increments of 1 second (for example Amazon RDS, or Linux EC2 instances)
+              On demand is recommended for applications with short-term workloads (for example, a four-month project), that spike periodically, or unpredictable workloads that can’t be interrupted. On
+              demand is also suitable for workloads, such as pre-production environments, which require uninterrupted runtimes, but do not run long enough for a commitment discount 
+            
+            •Spot
+              A Spot Instance is spare EC2 compute capacity available at discounts of up to 90% off On-Demand prices with no long-term commitment required
+              2-minute warning if EC2 needs the capacity back  or the Spot Instance price exceeds your configured price
+              On average, Spot Instances are interrupted less than 5% of the time
+              Spot is ideal when the workload is non critical or has a queue in place and there is multiple insantces processing a workload with stateless and fault tolerant application like hadoop.
+              Non-critical workloads such as test and development environments are also candidates for Spot
+              Spot is integrated with autoscaling group, elasitic container service, elastic map reduce, AWS batch
+              When two minutes is over, AWS sends a interruption notice through cloud watch event and EC2 metadata service. Use the two minutes to save any final workload.
+              Best practices: 
+               Set your maximum price as the On-Demand rate
+               Be flexible across as many instance types as possible
+               Be flexible about where(AZ) your workload will run
+               Design your workloads for statelessness and faulttolerance
+               We recommend using Spot Instances in combination with On-Demand and Savings Plans/Reserved Instances to maximize workload cost optimization with performance
+               
+            • Commitment discounts - Savings Plans
+               A Savings Plan allows you to make an hourly spend commitment for one or three years, and receive discounted pricing across your resources.
+               When you make the commitment, you pay that commitment amount every hour, and it is subtracted from your On-Demand usage at the discount rate
+               Compute Savings Plans are the most flexible and provide a discount of up to 66%. They automatically apply across Availability Zones, instance size, instance family, operating
+               system, tenancy, Region, and compute service. Region is the point here compared to instance discount.
+              
+            • Commitment discounts - Reserved Instances/Capacity
+              Instance Savings Plans have less flexibility but provide a higher discount rate (up to 72%). They automatically apply across Availability Zones, instance size, instance family,
+              operating system, and tenancy
+              There are three payment options:
+               • No upfront payment:
+               • Partial upfront payment
+               • All upfront payment         
+                           
+            • Geographic selection
+              Each AWS Region operates within local market conditions, and resource pricing is different in each Region. Choose a specific Region to operate a component of or your
+              entire solution so that you can run at the lowest possible price globally
+            
+            • EC2 Fleet
+              EC2 Fleet is a feature that allows you to define a target compute capacity,and then specify the instance types and the balance of On-Demand and Spot for the
+              fleet. EC2 Fleet will automatically launch the lowest price combination of resources to meet the defined capacity.
+            
+            
+            Best Practise for savings plan:
+            Savings plans apply first to the usage in the account they are purchased in, from the highest discount percentage to the lowest, then they apply to the consolidated usage
+            across all  other accounts, from the highest discount percentage to the lowest.
+            
+            It is recommended to purchase all Savings Plans in an account with no usage or resources, such as the master account. This ensures that the Savings Plan applies to
+            the highest discount rates across all of your usage, maximizing the discount amount
+            
+            Frequently review the Savings Plans recommendations in Cost Explorer (perform regular analysis)          
 
+                          
+            • Third-party agreements and pricing
+           
+Plan for Data Transfer
+             Networking resources in the cloud are consumed and paid for in the same way you pay for CPU and storage—you only pay for what you use.
+            
+            
