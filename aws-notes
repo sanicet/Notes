@@ -508,7 +508,22 @@ Plan for Data Transfer
             
             
             
-            
+  AWS Services:
+  
+  IAM
+   Centralized control of the AWS Account
+   Shared access to Accounts
+   Users -> added -> groups - > given -> Permissions
+   
+  Same account resources/  Users in other account  / Web Identiy / SAML -> Roles -> add -> Permissions
+  ( The concept of Roles seems to be different from GCP. See https://www.stratoscale.com/blog/compute/comparing-google-iam-aws-iam/. In GCP Users and Groups are identity and a policy is a binding Identity with roles. The Roles are a group of permissions.)
+   
+   How can you give permission to another account in AWS and GCP?
+   
+   In AWS the role is answer, IN GCP, the user can be added with email address as an identity. In AWS the conecpts of Identity is within the console but in GCP it is broader.
+   
+   
+   
             
             
             
