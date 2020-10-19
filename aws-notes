@@ -1,3 +1,5 @@
+
+
 Subscribe : aws this week
 
 Highly available - System will continue to function despite a failure to any of the components in the underlying achitecture
@@ -515,13 +517,14 @@ Plan for Data Transfer
     Centralized control of the AWS Account
     Shared access to Accounts
     Users -> added -> groups - > given -> Permissions
+    power user - All service access except manging IAM groups and users
 
    Same account resources/  Users in other account  / Web Identiy / SAML -> Roles -> add -> Permissions
    ( The concept of Roles seems to be different from GCP. See https://www.stratoscale.com/blog/compute/comparing-google-iam-aws-iam/. In GCP Users and Groups are identity and a policy is a binding Identity with roles. The Roles are a group of permissions.)
 
     How can you give permission to another account in AWS and GCP?
 
-    In AWS the role is answer, IN GCP, the user can be added with email address as an identity. In AWS the conecpts of Identity is within the console but in GCP it is broader.
+    In AWS the role is answer, IN GCP, the user can be added with email address as an identity. In AWS the, external user needs to have AWS account. - need to revisit?
 
    Monitoring:
     CloudWatch : Used for collecting logs, metrics and creating alarms. It is integrated with various notification channels for alarms.
@@ -537,11 +540,11 @@ Plan for Data Transfer
       Bucket Features:
        Storage Type
        Lifecycle Management
-       Versioning
+       Versioning ( once enabled, you can be only suspended. Applicable only for new writes)
        Encryption
        Bucket Policies
        MFA Delete ( Protect Object)
-       Cross region replication
+       Cross region replication ( Versioning needs to be enabled, existing files and delete markers will not be replicated.)
        Transfer Acceleration( Using cloudfront to upload object by users and making use of AWS network)
       
       Object Structure:
@@ -554,29 +557,32 @@ Plan for Data Transfer
        Read after write policy
        Eventual consistancy for Put and delete
        
-      Availablity: 99.9% and 99.5% ( S3 IA-1Z),  Durability 99.119%
+     Durability 99.119%
       Latency : Milliseconds -> 12 hours depnding on storage class
       
       S3 Tier:
-       Standard
-       S3 Infrequent Acceess ( 1 Month Minimum with retrieval fee)
-       S3 Infrequent Access 1AZ ( 99.95 availability,1 Month Minimum with retrieval fee))
-       S3 Intelligent Tier (1 Month Minimum)
-       S3 Glacier ( configurable Minutes to hours retreival time ,  3  months min with retrieval fee))
-       S3 Glacier Deep Archieve ( 12 hour retrieval time,  6 Months min with retrieval fee))
+       Standard - 99.99% availability
+       S3 Infrequent Acceess ( 1 Month Minimum with retrieval fee) -99.9% availability
+       S3 Intelligent Tier (1 Month Minimum) -99.9% availability
+       S3 Infrequent Access 1AZ ( 99.5 availability,1 Month Minimum with retrieval fee))      
+       S3 Glacier ( configurable Minutes to hours retreival time ,  3  months min with retrieval fee)), 99.99% availability
+       S3 Glacier Deep Archieve ( 12 hour retrieval time,  6 Months min with retrieval fee)), 99.99% availability
        
       
    Points to note :
     Not suetable for operating system. You should use block stoarge for that purpose.
     File can be from 0 bytes to 5TB. Largest single Put can transfer upto 5 GB after that use multipart.
     Http 200 when you upload a file to S3.
+    More prefix, more performance. 5500 get/head/s request, 3500/s other operations per prefix. The upload and retrieval will count towards KMS quota. Keep this in mid while designing.
     This is a regional resource. Users can select the region.
+    Virtual style puts your bucket name 1st, s3 2nd, and the region 3rd. Path style puts s3 1st and your bucket as a sub domain. Legacy Global endpoint has no region. S3 static hosting can be your own domain or your bucket name 1st, s3-website 2nd, followed by the region. AWS are in the process of phasing out Path style, and support for Legacy Global Endpoint format is limited and discouraged. However it is still useful to be able to recognize them should they show up in logs. https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html
+    100 S3 bucket per account?
     Security and complience:
      Access
       Customers may use four mechanisms for controlling access to Amazon S3 resources: Identity and Access Management (IAM) policies,
       bucket policies, Access Control Lists (ACLs), and Query String Authentication (With Query String Authentication, customers can create a URL to an Amazon S3 object which is only valid for a limited tim)
       Amazon VPC Endpoint for Amazon S3 is a logical entity within a VPC that allows connectivity only to S3. You can configure the specific VPC end point using AWS S3 bucket policies.
-     Encryption:
+     Encryption:(SSE-Server side encryption)
       SSE-S3 -Use default S3 key to encrypt and decrypt. Managed by AWS
       SSE-C - Use customer supplied key to encrypt and decrypt. Customer manages and supplys keys to AWS during opeartion
       SSE-KMS - Use Key managed by Customer in AWS KMS. 
@@ -589,15 +595,23 @@ Plan for Data Transfer
       Choose AWS S3 on Outpost(On premise S3 solution managed by AWS)
      PII
       Amazon Macie - Uses AI to lookn for PII
+     S3 Object Lock:
+       Write once read only mode ( lock the object)
+       Complience mode - No one can delete/ modify it
+       Governance mode - Only specific users can unlock it and modify or change lock.
+     S3 Glacier Lock
+       Specify a policy and lock the object. Once locked the policy cannot be changed.
       
      Services around S3
      
      Query and Analyse:
+          S3 Byte range fetches : To fetch first few Bytes.
+          Amazon S3 Select: Retreive part of an object using SQL query language to a dataset . Saves data transfer if you know what to query.        
+          Amazon Athena : Analalyse objects using Query service on top of S3 using Sql           
+          Amazon Redshift: enables you to run queries against exabytes of unstructured data in Amazon S3 with no loading or ETL required 
           Amazon Macie : To identify PII data
-          Amazon Athena : Analalyse objects using Query service on top of S3 using Sql 
-          Amazon S3 Select: Retreive part of an object using SQL query language to a dataset
-          Amazon Redshift: enables you to run queries against exabytes of unstructured data in Amazon S3 with no loading or ETL required      
           S3 Access analyser : Analyse the access to S3 Bucket
+         
           
      Notification:
        S3 Event notification : Sents events to SNS, SQS, Lambda for S3 Http methods
@@ -616,12 +630,24 @@ Plan for Data Transfer
            Snow ball
            Snow ball Edge
            Snow Mobile
-         AWS Storage Gateway:
-           This is a sync up solution between on prem and S3 . It can use ( complement) S3 transfer acceeleration for efficiency.
-       
+           DataSync
+            Used as a datasyncup solution between on prem and S3, EFS, Amazon Fsx for windows. It can be also used to sync data between two EFS. 
+           AWS Storage Gateway
+            AWS Storage Gateway is a physical or virtual appliance that can be used to sync your data between on prem and S3. It can use ( complement) S3 transfer acceeleration for efficiency.
+            Variation
+              File Storage Gateway - Sync up NFS/ SMB to S3 ( NFS and SMB are optimized for File share where as block storage is optimized for indvidual consumption)
+              Volume storage gateway - Used to sync up block storage to S3. In two modes
+               
+       How to Share S3 between accounts?
+          1. Using Bucket policies and IAM
+          2. Using Object ACL and IAM. This is only programatic
+          3. Using cross account IAM roles.
+           
+        
             
-            
-            
+      AWS Organizations? 
+      Storage gateway and S3 DataSync?
+      EFS VS EBS - when to use it      
             
             
             
