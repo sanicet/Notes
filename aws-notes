@@ -474,5 +474,56 @@ Cost Optimization Pillar
            
 Plan for Data Transfer
              Networking resources in the cloud are consumed and paid for in the same way you pay for CPU and storage—you only pay for what you use.
+            > Perform data transfer modeling:Model your data transfer with a sample (eg: data sync between AZ or region) and calcluate the cost. Use AWS cost explorer tool or cost and usage reporting tool with the model to get an idea.
+            
+            > Optimize Data Transfer : Consider using CDN or AWS Direct connect / VPN depending on Workload / VPC End point( Allow connectivity between AWS Services to reduce public data transfer)
+            
+            
+            
+            Manage Demand and Supply Resources
+             Manage Demand – Throttling -  
+              If the source of the demand has retry capability, then you can implement throttling.Amazon 
+              API Gateway can be used to implement throttling
+              
+             Manage Demand – 
+               Buffer based - Similar to throttling, a buffer defers request processing, allowing applications that run at different rates to communicate effectively. 
+               Amazon SQS is a managed service that provides queues that allow a single consumer to read individual messages
+               Amazon Kinesis provides a stream that allows many consumers to read the same messages
+               
+            Dynamic Supply
+             Use Autoscaling
+             Use metrics and events( CPU, Network etc) from cloudwatch to trigger scale events in your workload
+             Elastic Load Balancing (ELB) helps you to scale by distributing demand across multiple resources
+             
+            Time-based supply: 
+             A time-based approach aligns resource capacity to demand that is predictable or well-defined by time.
+             You can also leverage the AWS APIs and SDKs and AWS CloudFormation to automatically provision and decommission entire environments as you need them
+             This technique can also be applied to other resources, such as EBS Elastic Volumes, which can be modified to increase size, adjus performance (IOPS) or change the volume type while in use
+             When architecting with a time-based approach keep in mind two key considerations. First, how consistent is the usage pattern? Second, what is the impact if the pattern changes?
+            
+            Develop a workload review process:
+            To ensure that you always have the most cost efficient workload, you must regularly review the workload to know if there are opportunities to implement new services, features, and components
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
