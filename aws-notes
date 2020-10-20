@@ -633,10 +633,12 @@ Plan for Data Transfer
            DataSync
             Used as a datasyncup solution between on prem and S3, EFS, Amazon Fsx for windows. It can be also used to sync data between two EFS. 
            AWS Storage Gateway
-            AWS Storage Gateway is a physical or virtual appliance that can be used to sync your data between on prem and S3. It can use ( complement) S3 transfer acceeleration for efficiency.
+            AWS Storage Gateway is a physical or virtual appliance that can be used to be a gateway ( not sync) for your data between on prem and S3. It can use ( complement) S3 transfer acceeleration for efficiency.
             Variation
-              File Storage Gateway - Sync up NFS/ SMB to S3 ( NFS and SMB are optimized for File share where as block storage is optimized for indvidual consumption)
-              Volume storage gateway - Used to sync up block storage to S3. In two modes
+              File Storage Gateway - Files are stored in S3 and storage gateway act as NFS or SMB to application.
+              Volume storage gateway - Used as a backup of block storage to S3. The gateway keeps backup of your volume snapshot into S3.
+              Cached Vloume - Here volume is entirely stored in S3 only frequently accessed part is kep on premise.
+              Tpe gateway - This can be used where backup is stored in tapes now. Instead of tape, replace it with tape gateway and the backup will go to S3.
                
        How to Share S3 between accounts?
           1. Using Bucket policies and IAM
