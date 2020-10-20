@@ -1,4 +1,8 @@
+General:
 
+IOPS measures the number of read and write operations per second, while throughput measures the number of bits read or written per second
+EBS is a block storgae and is not optimized for using it as file share
+EFS is based on NFS / SMB and is used as a file share mount point
 
 Subscribe : aws this week
 
@@ -647,9 +651,62 @@ Plan for Data Transfer
            
         
             
-      AWS Organizations? 
-      Storage gateway and S3 DataSync?
-      EFS VS EBS - when to use it      
+EC2
+
+ Ec2 instances pricing types
+  On Demand
+  Reserved capacity ( instance/compute)
+   Standard reserved instance : reserve an instance (72% discount)
+   Convertable reserved instances : Can convert between instance type (54%)
+   Scheduled reserved instances: Available to launch during a scheduled time frame.
+  Spot  ( like pre-emptiable)
+   If amazone terminates it, you will not be charged for the partial hour otherwise you will be.
+  Dedicated host - can be complemented with reserved capacity
+   Used when complience or licensing requirments are there.
+  
+  Ec2 instances machine Type:
+  
+    Fight DR Mc pxz AU
+    F - Field array
+    i - Io optimized
+    g - Graphics optimized
+    h - High disk through put
+    t - tiny general
+    
+    D - Dense storage
+    R - Ram optimized
+    
+    M -Medium general 
+    P - Picture, general purpose GPU, machine learning
+    x - Xtream memory optimized used for big Data
+    z -High compute and Mem
+    
+    A - arm based
+    U - Bare metal
+    
+   Ec2 notable features :
+    Termination protection - Have to explicitly select it
+    Root Volume  - Default is delete when terminated. If needed can be changed.
+    Additional Volume - Default is not to delete when terminated. Can be changed.
+   Automation
+    User Data : This field can be used to run autmated scripts when instance starts    
+    Monitoring
+     System status checks -checks the underling hyperware health status
+     Instance status checks - checks the instance health status
+     Cloud watch monitoring
+    Encrytion :
+     Root volume can be encrypted when created.
+    Security
+     Security Group - Security group by default block incoming and allow outgoing. You cannot put a deny rule in security group for that you have to use network ACL.
+                      Instead, security group deny all incoming and you can override it by using allow rule. Security groups are Statful firewall to instance. 
+                      You can have m->m relation ship between ec2 and security group.
+                      
+     EBS Volume:
+      Aws replicates EBS volume within AZ to ensure high availlability and durability.
+      
+     
+     
+    
             
             
             
