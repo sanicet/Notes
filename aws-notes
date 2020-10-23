@@ -436,7 +436,12 @@ Cost Optimization Pillar
               Non-critical workloads such as test and development environments are also candidates for Spot
               Spot is integrated with autoscaling group, elasitic container service, elastic map reduce, AWS batch
               When two minutes is over, AWS sends a interruption notice through cloud watch event and EC2 metadata service. Use the two minutes to save any final workload.
-              Best practices: 
+              Spot prices are hourly and if it goes up that your choice, you have two minutes to decide to stop or terminate the instances. You can also choose too have
+              Spot blocks which will block the termination upto 6 hours of running time after a spot price increase beyond the threshold.Use spot pricing history to decide on the price.
+              Spot request ith one time option will not relaunch the instances even if spot price goes below the threashold. But with persitance, it relaunches.
+              The spot request will be in active status when instances are running , it will be in disabled status when it is in persistance mode and when it is not running. Or it will
+              be in closed/failed/cancelled mode depending on the action that was done.
+              Best practices:  
                Set your maximum price as the On-Demand rate
                Be flexible across as many instance types as possible
                Be flexible about where(AZ) your workload will run
