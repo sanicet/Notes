@@ -711,6 +711,17 @@ EC2
                       You can have m->m relation ship between ec2 and security group.
      Roles : Prefer roles instead of storing credentials. Roles are generic concepts for AWS resources to access another resources or services. As a best practise, use role than storing credentials in Ec2 ( by using aws configure) to 
               access other resources.
+    
+    Ec2 placement Group:
+     Way of placing the Ec2 instances
+     You can't merge placement group
+     you can move existing instances into placement group after stopping.
+     Types:
+       Cluster – packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low-latency network performance necessary for tightly-coupled node-to-node communication that is typical of HPC applications.
+
+       Partition – spreads your instances across logical partitions such that groups of instances in one partition do not share the underlying hardware with groups of instances in different partitions. This strategy is typically used by large distributed and replicated workloads, such as Hadoop, Cassandra, and Kafka.
+
+       Spread – strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
                       
      EBS Volume:
       Aws replicates EBS volume within AZ to ensure high availlability and durability.
