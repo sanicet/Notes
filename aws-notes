@@ -693,7 +693,8 @@ EC2
     Termination protection - Have to explicitly select it
     Root Volume  - Default is delete when terminated. If needed can be changed.
     Additional Volume - Default is not to delete when terminated. Can be changed.
-    Hibernation - Ec2 can be asked to hibernate its RAM state. This is good if we have more time in starting up the instance or long runnig process.. 
+    Hibernation - Ec2 can be asked to hibernate its RAM state. This is good if we have more time in starting up the instance or long runnig process. 
+    The RAM must be  < 150 GB and is available only for selected instance type. Maximum period of hibernation is 60 days.
    Automation
     User Data : This field can be used to run autmated scripts when instance starts    
     Monitoring
