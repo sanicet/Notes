@@ -703,6 +703,21 @@ EC2
                       
      EBS Volume:
       Aws replicates EBS volume within AZ to ensure high availlability and durability.
+      Types :
+       General pupropse SSD ( Most worklods), gp2
+       Provisioned IOPS SSD ( Database),io1
+       Throughput optimized HDD ( BigData and Datawarehouses),st
+       Cold HDD(File Servers),sc
+       EBS Magnetic- previous gen HDD ( Infrequently acceesed Data),standard
+      Hardwire Assisted virtual machine image type will give lot more flexibility to select different types of VM
+      When we create a snapshot, the snapshot will get store in S3. Snapshots are point in time and is incremental.
+      Images are full and is not incremental
+      Disk -> Snapshot -> Image can be used to transfer the volume from one AZ to another.
+      Snapshot is AZ resources? If we want to move snapshot from one region to another you need to make a copy?
+      You can take a snapshot while instance is running but best practice is to stop the instance to take snapshot
+      It is always better to have instance and volumes on same availabllity zone for better performance
+      Volumes exists in EBS
+      
       
      
      
