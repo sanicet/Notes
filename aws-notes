@@ -808,7 +808,53 @@ EC2
      SMB( Windows Server message Block) based
      
 
-     
+     HPC Industies:
+      Genomics
+      Finanacial
+      Machine learning
+      Weather protection
+      Autonomous Driving
+      
+       HPC Types:
+        Data transfer :  Use snowball / Snow mobile (TB/PB of data)
+                         AWS Data Sync
+                         AWS Direct connect
+        Compute :
+                      : Ec2 instances GPU or CPU optimized
+                      : Placement group
+                      : Ec2 Fleet
+        Networking : 
+                      Enhanced Networking
+                         ENA
+                         EFA
+         Storage :
+               
+                      Instance attached Storage
+                         EBS with provisioned IOPS
+                         Instance store
+                      Network Storage:
+                         S3
+                         EFS
+                         FSX for Lustor
+         Orchestration and Automation:
+                      AWS Batch
+                      AWS Parallel cluster
+         
+      Security :
+      
+       AWS WAF - Layer 7 Application layer Http/Https firewall for cloud front, load balancer, API gateway and instance group. Allow/Block or clount.
+       Network ACL
+       Security Group
+                      
+                         
+                         
+                         
+                         
+                         
+                         
+        
+        
+      
    
        
        
