@@ -536,7 +536,8 @@ Plan for Data Transfer
     In AWS the role is answer, IN GCP, the user can be added with email address as an identity. In AWS the, external user needs to have AWS account. - need to revisit?
 
    Monitoring:
-    CloudWatch : Used for collecting logs, metrics and creating alarms. It is integrated with various notification channels for alarms.
+    CloudWatch : Used for collecting logs, metrics, events , creating alarms, creating dashboards for monitoring performances. It is integrated with various notification channels for alarms. By default cloud watch monitors EC2 performance for 
+    every 5 minutes. With Detailed level ( configured in Ec2), it can monitor every 1 minute.
     System Manager : It is collection of service and capability for configuring and managing Ec2 instances, On primese servers and Virtual machines and certain other resources. 
     
     Stoarge:
@@ -695,8 +696,9 @@ EC2
     Additional Volume - Default is not to delete when terminated. Can be changed.
     Hibernation - Ec2 can be asked to hibernate its RAM state. This is good if we have more time in starting up the instance or long runnig process. 
     The RAM must be  < 150 GB and is available only for selected instance type. Maximum period of hibernation is 60 days.
-   Automation
-    User Data : This field can be used to run autmated scripts when instance starts    
+   Automation    
+    User Data : This field can be used to run autmated scripts when instance starts. The scripts are called bootstrap scripts.
+    Instance metadata : Ec2 instance can access instance metadata server to get the user data or meta data of the server. The metadata server url is https://169.254.169.254/latest/user-data or meta-data
     Monitoring
      System status checks -checks the underling hyperware health status
      Instance status checks - checks the instance health status
@@ -707,6 +709,8 @@ EC2
      Security Group - Security group by default block incoming and allow outgoing. You cannot put a deny rule in security group for that you have to use network ACL.
                       Instead, security group deny all incoming and you can override it by using allow rule. Security groups are Statful firewall to instance. 
                       You can have m->m relation ship between ec2 and security group.
+     Roles : Prefer roles instead of storing credentials. Roles are generic concepts for AWS resources to access another resources or services. As a best practise, use role than storing credentials in Ec2 ( by using aws configure) to 
+              access other resources.
                       
      EBS Volume:
       Aws replicates EBS volume within AZ to ensure high availlability and durability.
