@@ -770,6 +770,25 @@ EC2
        When using an ENA, there is a OS layer for TCP IP communication. For application that need high performance / machine learning application, there is an optimized solution
        to use EFA ( Elastic fabric Adapter)  which bypassed Application -> EFA by using another intermediate module called Libfabric ( it uses a "fabric" solution) which is better 
        performant than tcp ip module in OS.
+     
+   File System
+   Elastic File System (EFS) :
+   
+     EFS allows multiple EC2 instance to access share file volume. 
+     Size is eleastic and changes with file size, You don't have to choose the size. The size can scale upto petabytes
+     EFS also have life cycle management
+     throughput type - Bursting < Provisioned
+     Performance - General < Max I/0
+     Encryption at rest can be choosen by user when provisioning
+     Once created , you will have to mount the EFS into Ec2 instances by running commands supplied by AWS and can be obtained from EFS section of AWS console.
+     Support NFSv4 protocol
+     cost is based on storage
+     Support 1000 concurrent NFS connnections
+     Data is replicated to multiple AZ within a region for durability and availablity.
+     Read after write consistancy model
+     
+     
+   
        
        
        
