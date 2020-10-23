@@ -719,13 +719,51 @@ EC2
       Duplicate  a EC2 instances in sanother region
       
        Disk -> Snapshot -> Image -> Copy Image to another region -> Ec2
-      Snapshot is a regional resoruces.
+       
+       How to encrypt an unecrypted volume?
+       
+       Un encrypted Disk -> Snapshot( encrypted) -> Image -> Ec2
+        Note: you can only share a snapshot between accounts only if it is unecnrypted.
+       
+      AMI is a regional resoruces.
+      Snapshot can be shared from one account to another as well with appropriate IAM permissions
       You can take a snapshot while instance is running but best practice is to stop the instance to take snapshot
       volumes will always on same availabllity zone for better performance
-      Volumes exists in EBS. Volume is a logical compenent/connection which is tied to an EC2 instance and reside in EBS. EBS is simply the harware part of the volume.
+      Volumes exists in EBS. Volume is a logical compenent/connection which is tied to an EC2 instance and reside in EBS. EBS is simply the harware part of the volume which is again a virtual hard disk.
       
       
-     
+     AMI - Amazone machine image
+      Types : 
+        EBS
+        Instance store - This storage is physically located to a disk which is attached to machine where VM is created.
+                         When a VM is stopped / terminated , this storage is reset as AWS may change the physical host/ hyperwiser when a VM is restarted, terminated .
+                         So the storage is ephimeral. This can be used for buffers, cache data and should not be used for persistant data. 
+                         Since the disk is attached to physical hardware, the instance store cannot be added after creating the VM and is not available with all instance type.
+        
+      Networking on EC2 instances:
+      
+       EC2 uses Network inteface to communicate to outside of it's machine. The network interface is a logical component of VPC and can be attached to EC2 instances. 
+       The network interface inheritis the IP address allocation of a subnet when created. If later point in time, the address is changed, it does not reflect in the 
+       Network interface. When an Ec2 is created, there is an automatic primary network interface created and attached to it which allocates the public and private IP address
+       from its ip address configuration.
+       
+       The primary network interface cannot be detached or removed. You can attach multiple secondary ENI to the Ec2 instance. Mainly the use case are like, you want to 
+       attach same machine to multiple subnet( say with private and public subnet group) or when creating security applience in the VPC.
+       
+       If a secondary network interface is detached and attached to a new instance, all traffic via secondary network interface will flow to the new instance. Hence this solution 
+       also can be used for a low cost load balancer scenario.
+       
+       If you need enhanced networking, the you have to use either ENA ( enahnced network adapter 100 GPS) or Intel VF( virtual function 10 GPS) interface. Enahnced network allows the 
+       more throughput and bandwidth for the network communications.
+       
+       When using an ENA, there is a OS layer for TCP IP communication. For application that need high performance / machine learning application, there is an optimized solution
+       to use EFA ( Elastic fabric Adapter)  which bypassed Application -> EFA by using another intermediate module called Libfabric ( it uses a "fabric" solution) which is better 
+       performant than tcp ip module in OS.
+       
+       
+       
+       
+       
      
     
             
