@@ -722,7 +722,7 @@ EC2
       Snapshot is a regional resoruces.
       You can take a snapshot while instance is running but best practice is to stop the instance to take snapshot
       volumes will always on same availabllity zone for better performance
-      Volumes exists in EBS
+      Volumes exists in EBS. Volume is a logical compenent/connection which is tied to an EC2 instance and reside in EBS. EBS is simply the harware part of the volume.
       
       
      
