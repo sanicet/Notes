@@ -772,7 +772,7 @@ EC2
        performant than tcp ip module in OS.
      
    File System
-   Elastic File System (EFS) :
+   Unix/Linux: Elastic File System (EFS) :
    
      EFS allows multiple EC2 instance to access share file volume. 
      Size is eleastic and changes with file size, You don't have to choose the size. The size can scale upto petabytes
@@ -787,6 +787,16 @@ EC2
      Data is replicated to multiple AZ within a region for durability and availablity.
      Read after write consistancy model
      
+   FSX for Lustor:
+     Amazon FSx for Lustre is a fully managed service that provides cost-effective, high-performance storage for compute workloads. 
+     Many workloads such as machine learning, high performance computing (HPC), video rendering, and financial simulations depend on compute
+     instances accessing the same set of data through high-performance shared storage. This can be integrated with S3 to store data in s3..
+     
+   Windows : FSX for windows file server
+     Designed to use with microsoft applications - SQL server, IIS, Active directory, Share point
+     SMB( Windows Server message Block) based
+     
+
      
    
        
