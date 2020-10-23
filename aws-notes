@@ -693,6 +693,7 @@ EC2
     Termination protection - Have to explicitly select it
     Root Volume  - Default is delete when terminated. If needed can be changed.
     Additional Volume - Default is not to delete when terminated. Can be changed.
+    Hibernation - Ec2 can be asked to hibernate its RAM state. This is good if we have more time in starting up the instance or long runnig process.. 
    Automation
     User Data : This field can be used to run autmated scripts when instance starts    
     Monitoring
