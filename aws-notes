@@ -715,7 +715,7 @@ EC2
     Ec2 placement Group:
      Way of placing the Ec2 instances
      You can't merge placement group
-     you can move existing instances into placement group after stopping.
+     you can't move existing instances into placement group after stopping.
      Types:
        Cluster – packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low-latency network performance necessary for tightly-coupled node-to-node communication that is typical of HPC applications.
 
