@@ -845,6 +845,116 @@ EC2
        AWS WAF - Layer 7 Application layer Http/Https firewall for cloud front, load balancer, API gateway and instance group. Allow/Block or clount.
        Network ACL
        Security Group
+       
+       AD services:
+       
+       Generally, Active directory is based on LDAP and DNS services. It is a windows solution used to manage the access to differents services and machines with entitlement, group and roles. 
+       It is similar to IAM but is a microsoft solution. It supports authentications like Kerboros, LDAP and NTLM(?) authentication. The authentication modules can be integrated with services. 
+       User can use their ERS account to authenticate and authorize with different services based on the entitlements/groups/role in AD. Typical AD requires HA.
+       
+       AWS has several family of AD services.
+       
+       AWS Directory Services 
+        This is a managed AWS services PAAS which can do the following
+         1. Setup a AD service in AWS ( AWS managed AD)
+         2. Connect to on prem AD service and control the AWS microsoft AD aware services and Ec2( windows and linux) machine management through existing configuration in the on prem AD service
+         3. Use existing co-orporate credentials to access AWS resources using IAM policies configured for the co-orporate credentials. This is federated access. The authentication 
+            will be managed by on prem / AWS AD service and authorization will be managed by IAM.
+         4. SSO can be implemented in Ec2 instances. There is no different credentials needed for Ec2 . You can use SSO with co-orporate credentials.
+         
+
+        Authentication and Authorization for employees:
+        
+          AD Trust:
+           Used to Join on prem AD service to extend the services. This means the same AD configurations can control/access both on prem and aws applicable services or resources..      
+
+          AD CONNECTOR:
+           This is a pure proxy( directroy gateway) service to on prem AD service.No footprint of Ad configuration in AWS. Functionalities are similar to AD trust.
+
+           AWS Managed AD
+           used for Seting up a AD service in AWS ( AWS managed AD)
+           AWS run the AD services in its own VPC. Your services will be able to access the AD services VPC.
+           Can be integrated with AD Trust
+
+          Simple AD:
+           Similar to AWS managed AD with less scale and basic features.
+           It can support only 500-5000 users depending on small or large
+           Cannot be integrated with AD Trust.
+           
+         Directory Service solutions for Development
+          Cloud Directory:
+           Managed Directory solution for applications which neeeds to make use of a directory solutions like Org charts, product, course catelog etc. 
+           This is not a Active directory ( microsoft solution) rather it is just a directory service where users can write their on logic based on directory.
+           
+         Federated Authentication Services:
+          Amazon Cognito user pools:
+           This is used for application sign in for web and mobile.
+           The user credentials can be managed in Cognito or it can federate the access to another service provider iike google or facebook
+         
+      IAM:
+      Policies:
+       Policies contain JSON document with the following building blocks
+        ARN 
+         : Arn are used to identify a resource ( resource name) with syntax arn:partition:service:region:account_id
+         : eg : arn:aws::s3:::mybucket/image
+         
+      Json Syntax :
+       Version
+        - Statement
+           Sid (Statement ID)
+           Effect( Allow/Deny)
+           -Action( API call)
+            API:method (eg : dynamoDb:Scan)
+           Resource: ARN
+           
+         
+         
+      Usage:
+       Policies can be attached to User , Group and roles and is the known as identity policies
+       Policies that are attached to resources are known as resource policies.
+       Ideally for identity , A group should be created with required policies and users should be added to group.
+               For resources, a role should be created with required policies and resources should be given the role.
+       
+       Types of policies:
+        AWS managed policies
+        Customer managed policies
+        inline policies ( applicable only for the Identity or resources when created. Others will no have visibility to this policy).
+        
+       Policy eveluation:
+        All policies are combined first to eveluate.
+        Default is deny unless aloow is specified
+        Any deny on same arn will override allow.
+        AWS will take the policy and then apply permission boundary before allowin the access to resource.
+        Permission boundaries controls the maximum permission allowed for an user.
+        
+    Multi Account scenarios: 
+        
+      AWS Resource manager:
+       AWS resource manager is used to share resources between aws account.
+       One account can choose to share the resources from its aws resource manager and add other accounts account id to slected resource to share. This will trigger an
+       Invitation and other account have to accept it. Once done, the resource is shared between two accounts.
+       - Not every resource is available for resource sharing though aws resource anager
+       
+      AWS Single sign on:
+        AWS SSO is a single sign on service which can intgrate with different services like, AWS AD, AWS Trust, Business applications ( like Gsuite, Oracle etc) and 
+        can be used to manage access for  multiple AWS accounts under a organization. This can also be integrated witb SAML 2.0 supported applications.
+        
+      
+       
+      
+      
+           
+           
+         
+        
+         
+
+         
+         
+         
+         
+            
+                            
                       
                          
                          
