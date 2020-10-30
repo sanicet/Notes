@@ -939,7 +939,83 @@ EC2
         AWS SSO is a single sign on service which can intgrate with different services like, AWS AD, AWS Trust, Business applications ( like Gsuite, Oracle etc) and 
         can be used to manage access for  multiple AWS accounts under a organization. This can also be integrated witb SAML 2.0 supported applications.
         
-      
+    DNS services
+     Domain register: This is a service which will allow you to register a domain. It can take 3 days.
+    
+     Route53 - DNS is on port 53. Thus name.
+          DNS 101: 
+           Domain -> IPV4 or IPV6
+           IPV4 - 32 bits, 4 octet
+           IPV6 - 128 bits 
+           Tope level domain - .com
+           Second level domain name -.co in .co.in
+           Domains are given by IANA ( internet assigned number authority)
+           Domain registar - can assign domain names. This is integrated with ICANN
+           ICANN - Enforces the uniquenes of domain name acress internet by registering whois database
+           SOA - Start of authority
+           NS - Name server records
+           inspire.com->will first go to .com( top level domain server) - > Get the NS record - > ns.awsdns.com( domain registers name server) - > The name server will have SOA record
+           Inside SOA -> DNS records
+           SOA - will also have TTL and info about other DNS records. Default ttl is 48 hours. The webserver will cache the TTL.
+           Naked domain name : inspire.com
+           Sub Domain: www.inspire.com, m.inspire.com etc
+
+           DNS Records :
+
+            NS record : refer above
+            SOA record: refer above
+            A record : Address record. Maps Name -> IP address4
+            AAA records : A record for ipv6
+            C Name : Canonical name. Used to map a sub domain to another domain or subdomain which has an A record or alias. For ex: m.inspire.com->inspire.com
+            Alias record : Used to map naked domain to another domain. eg: inspire.com -> s3 bucket, ELB etc
+            MX record : mail server exchange records
+            PTR record : point of reference record. It is reverse of A record.
+            TXT record : any text that would be added to DNS record
+            SRV record: ?
+         
+         Routing policies:
+         
+           Simple routing: 
+            A records can have multiple IP address in seperate lines. AWS rnadomly chooses one to route the traffic to. 
+           Weighted routing:
+            Split the traffic based on different weights. Say 10% to one IP and 90% to another.
+           Latency based routing:
+            AWS chooses the least latensy with respect to user to route the traffic to configured backed service
+           Failover routing:
+            Used for active passive setup. A DR scenario. If primary fails, the traffic will be routed to secondary.
+           Geolocation based routing:
+            Used to route the traffic from a geo location to a purticular resource in AWS. Consider this for a GDPR scenario.Locatin can be based on continent or country.
+           GeoProximity based routing:
+            Allowed only when trafic flow rules are enabled. In the traffic flow rule, you can configure geoproximity location routing rule by specifying a lattitude and longitude and a bias
+            to rote the traffic to another rule or to server. You can combine multiple rules in traffic rules.
+           MultiValue answer routing:
+            Simple routing + health checks
+           
+         Health checks and Alarms:
+          Route 53 can check the healthchecks before routing to a IP address with any of the above configured policies except Simple routing.
+          AWS does not route the traffic until it pass the health checks.
+          
+          Limits:
+          Soft limit of 50 domains
+          
+        
+        
+        
+      Elastic load balancer:
+       ELB does not have a IP address. You will have to map your DNS to ELB using CNAME or Alias record depending on wether it is subdomina or naked doamin.
+        
+        
+        
+        
+        
+       
+        
+        
+       
+       
+       
+       
+     
        
       
       
