@@ -998,7 +998,69 @@ EC2
           Limits:
           Soft limit of 50 domains
           
+        Networking 101
+        Private IP address
+         10.0.0.0-10.255.255.255 (10/8)
+         172.16.0.0-172.31.255.255.255(172.16/12)
+         192.168.0.0-192.168.255.255(192.168/16)
         
+        subnet creation 
+         cider.xyz
+        
+        AWS VPC:
+        
+         AWS largest subnet that can be used : 10.0.0.0/16 and smallest would be /24
+         5 ip address from host pool in each subnet is reserved by aws
+         
+         
+         Subnet is AZonal resource
+         VPC Components :
+          VPC
+           VPC are regional in aws
+            Subnet        
+                Private
+                Public :                 
+                 In order to make it public, the ec2 instances in subnet also should be assigned with public ip address. This can be done through auto assign public ipv4 address.
+                 create an Internet gateway and associate with VPC. 
+                 Create a route table and associates with subnet. Define routes for both ipv4 and ipv6 to route to IGW for any internet destination address.
+                 Create a security group and associate it with subnet. Allow http/s/ssh traffic from source internet to corresponding port
+                 
+           External connections        
+               Associated with VPC
+                 Internet Gateway ( only one per VPC)
+                 Virtual private gateway ( VPN)
+                 VPC Peering
+                 VPC endpoint
+                 Customer Gateway?
+                 NAT Gateway
+           Routing (  VPC resource but can be attached to subnet)
+            Route Tables
+             The main route table are created with VPC and is automatically assigned to all subnets in VPC.
+             For public subnet, create another rote table as the main route tables are associated with all subnet
+            Sharing
+            ...
+           Security 
+            Network ACL( Associated with VPC)
+             Network  ACL are stateless firewall rules
+             Can cnfigure allow and deny rules
+            Security Groups ( Associated with Subnet)
+             Inbound and outbound rules can be configured
+             Security groups are staeful
+             Can configure only allow rules
+            
+          
+        
+        Default VPC:
+         All subnet in default vpc have access to internet
+         All Ec2 instance can get a public and private ip address.
+         
+         VPC - VPC connection: 
+          VPC peering ( Same account or others. No transitive peering)
+          Cross region VPC peering is allowed
+          
+         
+          
+                   
         
         
       Elastic load balancer:
