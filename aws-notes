@@ -1032,23 +1032,62 @@ EC2
                  VPC Peering
                  VPC endpoint
                  Customer Gateway?
+                 
                  NAT Gateway
+                  This for private ec2 instances to communicate to internet.
+                  Have to be launched/associated in public subnet which has connection to internet gateway
+                   In the private subnet, create a route from private subnet routes to natgateway or nat instance
+                   NAT Instances : 
+                    Indvidual NAT instance. This is not HA by default. You will have to create and manage your on HA architecture if using instance.
+                    Create EC2 instance with NAT AMI
+                    Disable source and destination checks as NAT will communicate to internet on behalf of other severs.                   
+                   NAT Gateway : 
+                    HA Gateway managed by AWS 
+                    Create an elastic ip for natgatway whle creating
+                    Limited to one AZ. For HA architect, create NA in each availability zone and attach to subnets that are in the AZ.
+                    
            Routing (  VPC resource but can be attached to subnet)
             Route Tables
              The main route table are created with VPC and is automatically assigned to all subnets in VPC.
              For public subnet, create another rote table as the main route tables are associated with all subnet
             Sharing
             ...
-           Security 
-            Network ACL( Associated with VPC)
-             Network  ACL are stateless firewall rules
-             Can cnfigure allow and deny rules
-            Security Groups ( Associated with Subnet)
+           Security
+           
+            Network ACL         
+             Network  ACL are stateless firewall rules 
+             A network access control list (ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets.            
+             Can configure allow and deny rules
+             The highest number that you can use for a rule is 32766 ( lowest prirotiy)
+             Have to associate with a subnet else subnet will get associated with default NACL
+             1 subnet can have only 1 NACL but NACL can be reused across multiple subnet
+             Ephimeral ports 
+              : When a machine gets a request in one of the ports, say 80, the outbound message will go through ephimeral ports.
+              : So you have to make sure that ephimeral ports are allowed from the target depdending up on communication scenario.
+              : For example if you are acting as a server, then you need to allow inbound from client to your http/s and outbound from your servers ephimeral ports to outside. Vice versa.
+              : Ephimeral ports: - 1024-65535
+              Custom :
+               You can create a custom network ACL and associate it with a subnet. By default, each custom network ACL denies all inbound and outbound traffic until you add rules. 
+              default:
+              Your VPC automatically comes with a modifiable default network ACL. By default, it allows all inbound and outbound IPv4 traffic and, if applicable, IPv6 traffic
+             
+            Security Groups 
              Inbound and outbound rules can be configured
              Security groups are staeful
              Can configure only allow rules
-            
+             
+            Load Balancers:
+             Load balancers can be created only if we select atleast two public subnets. This may be due to have HA for loadbalncer machines.
           
+           Logging:
+            VPC Flow logs 
+             Can capture network traffic for different level and send to cloudwatch or s3 buckets
+              VPC level
+              Subnet level
+              Instance level
+             You can only enable flow logs for VPC which are in your account. You cannot enable for another vpc which is peered but resides in another account.
+             Once created, you cannot change the configurations.
+             Any internal aws specific ( metadata, DHCP, DNS) etc are not monitored.
         
         Default VPC:
          All subnet in default vpc have access to internet
