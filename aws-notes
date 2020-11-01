@@ -1078,6 +1078,9 @@ EC2
              
             Load Balancers:
              Load balancers can be created only if we select atleast two public subnets. This may be due to have HA for loadbalncer machines.
+             
+            Bastion hosts:
+             Jump boxes to connect to your private subnets. Opposit of NATInstances.
           
            Logging:
             VPC Flow logs 
