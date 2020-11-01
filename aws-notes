@@ -1003,6 +1003,7 @@ EC2
          10.0.0.0-10.255.255.255 (10/8)
          172.16.0.0-172.31.255.255.255(172.16/12)
          192.168.0.0-192.168.255.255(192.168/16)
+         BGP - a protocol for transferring dynamic routes between routers
         
         subnet creation 
          cider.xyz
@@ -1025,26 +1026,58 @@ EC2
                  Create a route table and associates with subnet. Define routes for both ipv4 and ipv6 to route to IGW for any internet destination address.
                  Create a security group and associate it with subnet. Allow http/s/ssh traffic from source internet to corresponding port
                  
-           External connections        
-               Associated with VPC
-                 Internet Gateway ( only one per VPC)
-                 Virtual private gateway ( VPN)
-                 VPC Peering
-                 VPC endpoint
-                 Customer Gateway?
+           External connections  interfaces     
+                 VPC <-> Internet
                  
-                 NAT Gateway
-                  This for private ec2 instances to communicate to internet.
-                  Have to be launched/associated in public subnet which has connection to internet gateway
-                   In the private subnet, create a route from private subnet routes to natgateway or nat instance
-                   NAT Instances : 
-                    Indvidual NAT instance. This is not HA by default. You will have to create and manage your on HA architecture if using instance.
-                    Create EC2 instance with NAT AMI
-                    Disable source and destination checks as NAT will communicate to internet on behalf of other severs.                   
-                   NAT Gateway : 
-                    HA Gateway managed by AWS 
-                    Create an elastic ip for natgatway whle creating
-                    Limited to one AZ. For HA architect, create NA in each availability zone and attach to subnets that are in the AZ.
+                           Internet Gateway ( only one per VPC)
+                   
+                   VPC -> Internet
+
+                           NAT Gateway
+                                  This for private ec2 instances to communicate to internet.
+                                  Have to be launched/associated in public subnet which has connection to internet gateway
+                                   In the private subnet, create a route from private subnet routes to natgateway or nat instance
+                                   NAT Instances : 
+                                    Indvidual NAT instance. This is not HA by default. You will have to create and manage your on HA architecture if using instance.
+                                    Create EC2 instance with NAT AMI
+                                    Disable source and destination checks as NAT will communicate to internet on behalf of other severs.                   
+                                   NAT Gateway : 
+                                    HA Gateway managed by AWS 
+                                    Create an elastic ip for natgatway whle creating
+                                    Limited to one AZ. For HA architect, create NA in each availability zone and attach to subnets that are in the AZ.
+                            
+                  Internet/on prem -> VPC
+                         Bastion hosts:
+                            Jump boxes to connect to your private subnets. Opposit of NATInstances.
+                
+                Network layer connections between on prem and vpc:
+                   
+                         VPC - internet - On Prem
+                          Virtual private gateway ( VPN)
+                           VPN Gateway
+                           Customer Gateway
+
+                         VPC - Partner /customer ( unencrypted)
+                          Direct connect
+
+                          VPC - Partner /customer ( encrypted)                  
+                          VPN over Direct connect                                   
+
+                 Network layer connection between VPC inside
+
+                       VPC - VPC
+                         VPC Peering
+                         Shared VPC??? HOw to do that?
+
+                       VPC - supported AWS services through AWS network
+                        VPC endpoint
+                         No bandwidth constraint
+                         Traffic does not leave internet
+                          Type of interfaces :
+                           Interface endpoints
+                           Gateway endpoints
+                         
+           
                     
            Routing (  VPC resource but can be attached to subnet)
             Route Tables
@@ -1079,8 +1112,7 @@ EC2
             Load Balancers:
              Load balancers can be created only if we select atleast two public subnets. This may be due to have HA for loadbalncer machines.
              
-            Bastion hosts:
-             Jump boxes to connect to your private subnets. Opposit of NATInstances.
+
           
            Logging:
             VPC Flow logs 
@@ -1099,12 +1131,16 @@ EC2
          VPC - VPC connection: 
           VPC peering ( Same account or others. No transitive peering)
           Cross region VPC peering is allowed
-          
-         
-          
-                   
+       
+       Increasing performance
+        Client -> website
+         Gllobal accelerator
+          Client -> edge location -> global accelerator ->through aws network -> end points ( Load balancer, Ec2, Elastic ip)
+          Optional multiple regional end points
+          global accelerator will give two ip address for high availability
+          Traffic can be controled with different policies like weighted
         
-        
+       Increasing Availability
       Elastic load balancer:
        ELB does not have a IP address. You will have to map your DNS to ELB using CNAME or Alias record depending on wether it is subdomina or naked doamin.
         
