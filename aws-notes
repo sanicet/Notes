@@ -1045,7 +1045,24 @@ EC2
                                     HA Gateway managed by AWS 
                                     Create an elastic ip for natgatway whle creating
                                     Limited to one AZ. For HA architect, create NA in each availability zone and attach to subnets that are in the AZ.
-                            
+                                    
+                    VPC -> AWS end point ( through AWS network)
+                                VPN End points ( refer below)
+                                 Network interface
+                                 VPN Gateway
+                    VPC -> VPC ( Through AWS)
+                              Private Link
+                    
+                    VPC -> VPC -> On Prem                    
+                             AWS Transfer Gateway
+                                 This is a gatway acting as a HUB (AWS transfer gateway) and Spoke model to different VPN, AWS Direct connection, and VPC to VPC connection.
+                                 The connection routes can be controlled by configuring it in AWS transfer gateway
+                                 This makes network architecture simple
+                                 This is an ideal solution where transitive peering is needed between multiple vpcs and/or on prem datacenter
+                                 Supports IP multicast. There is no other service that supports this feature in aws.
+                     Multiple VPN Connection
+                              VPN CloudHub - it is a VPN Hub with a hub and spoke model                            
+
                   Internet/on prem -> VPC
                          Bastion hosts:
                             Jump boxes to connect to your private subnets. Opposit of NATInstances.
@@ -1068,14 +1085,24 @@ EC2
                        VPC - VPC
                          VPC Peering
                          Shared VPC??? HOw to do that?
+                         VPC-IGW-VPC ( traffic leaves internet)
+                         PrivateLink
+                          Using private link, you can share your vpc to another vpc without having the traffic leaving internet. This is 
+                          good solution if your service in a vpc needs to be shared with another 10 or 100 of other customers.
+                          Private link is essentially consist of a load balancer with Elastic IP at your side and an ENI ( elastic network interface)
+                          at customer side. The ENI needs to be attached to customer's ec2 instance and a private link needs to be configured to connect ENI with ELB.
 
                        VPC - supported AWS services through AWS network
                         VPC endpoint
                          No bandwidth constraint
                          Traffic does not leave internet
+                         This is powered by private link of aws infra.
                           Type of interfaces :
                            Interface endpoints
+                            - This is an Elastic network interface that will be attached to EC2 instances to communicate to AWS supported APIs privaty. 
                            Gateway endpoints
+                            - Gateway is like a NAT Gateway for connecting to AWS supported API from aprivate subnet. When creating, you need to attach to a vpc and subnet.
+                              routes will be automatically created from subnet to this gateway to commmunicate to aws apis.
                          
            
                     
@@ -1144,7 +1171,12 @@ EC2
       Elastic load balancer:
        ELB does not have a IP address. You will have to map your DNS to ELB using CNAME or Alias record depending on wether it is subdomina or naked doamin.
         
-        
+      Network cost
+       Incoming traffic to a VPC is free
+       Communication between rsources within a AZ using private ip address is free
+       Communication between resources using pulic ip address is charged as it leaves to internet
+       Communication between two AZ is chargable
+       Communication between two regional is chargable and will incure additional regional communication charge as well.
         
         
         
