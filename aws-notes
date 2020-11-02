@@ -1376,8 +1376,55 @@ EC2
           Identity pools - handles identity's authorization and access to aws resources. This is integrated with IAM.
       
            
-           
-         
+     WAF
+     WAF can be attached to ALB or cloudfront ditribution. 
+     In the case of cloudfront, only WAF can block the bad actor's ip address.
+     Cloudfront geo match rule also can block traffic from certain countries or location.
+     In the case of load balancers, NACL is an additional protection for blocking bad actors eventhough WAF is prefered for application load balancers
+     In the case of Ec2 instance, NACL and host based firewall is an option to block an IP address.
+     Remember, In the case of Ec2, security group cannot explicitly block an IP address. It can only have allow rules.
+     
+   AWS KMS
+    This is a regional managed service. This is important as one object which is encrypted with KMS key needs to be decrypted and encrypted with another key when moved between regions.
+    Manages customer master keys ( CMK)
+    Encrypt and Dycrypt up to 4Kb size data
+     What if you want to encrypt more than 4kb?
+      Use AWS DEK(Data encryption key, generate data-key using CMK) to encrypt the data. The generate data key will give you a plane text and a cipher text data. Use plane text key
+      to encrypt the data and store cipher text data with encrypted data. When decrypting, pass the cipher text DEK and Data to KMS. KMS will decrypt the data. Destroy the plane text DEK after encryption.
+      This is known as envolope encryption.
+    Audit - cloudtrail - S3
+    FIPS 140-level-2   
+     CMK ( Customer master key)
+     Anytime you use a CMK to encrypt a data, the key alias / id will be stored with the data. So you don't have to specify the key when decrypting.
+     Note that normal encryption and decryption work with Base 64 encoding or decoding. You can change the options in your command prompt.
+      AWS managed CMK
+       - Dedicated to your account. You only have view access.
+       - Rotated every 3 years
+      Customer Managed CMK
+       - You create and manage the key in AWS KMS
+       - Can be configured to rotate every year
+      AWS owned CMK
+       - Used by AWS on a share basis to multiple accounts. you cannot view or manage.
+      Symmetric - AES 256
+       AWS services that are integrated with KMS uses symmetric keys. They do not support asymmetric keys.
+      Asymmetric - RSA/ Eliptic- curve -cryptography
+       Private key never leaves AWS unencrypted
+       Public key can be downloaded but Private Key is accessable only with API
+       Mostly used for signing and signature verification
+   
+   
+   Cloud HSM
+   Dedicated hardware security Module solution.
+   FIPS-140-level-3
+   You manage your keys
+   Runs withn your VPC
+   Single tenent dedicated hardware solutions.
+   No AWS specific APIs. You need to use industry standard APIs like
+    JKS, PKCS12,MicrosoftCNG, 
+   If lost, even AWS does not have access.
+   APP -> ENI -> Cloud HSM( its own VPC owned by you)
+   Configure 1 HSM per subnet for HA
+    
         
          
 
