@@ -142,10 +142,10 @@ EFS - Region scope. Availability : 3 9s and Durability 11 9s. No published data 
                                    or AWS data sync can splicate the data into different region.
                                    
 S3
- S3 standard - Region scope. 4 9s of availability and 11 9s of durabilty.
- S3 IA  - Region scope. 3 9s of availability and 11 9s durabilty.
+ S3 standard - Region scope.99.99% of availability and 11 9s of durabilty.
+ S3 IA  - Region scope. 99.9% s of availability and 11 9s durabilty.
  S3 Inteligent tier - This is a workload and not storage class. The numbers are similar to S3 IA.
- S3 One zone IA - Only one zone. Replicated to 3 times in same az. Durabiulity is same but avialability is 9.95
+ S3 One zone IA - Only one zone. Replicated to 3 times in same az. Durabiulity is same but avialability is 99.5%
  
    To improve the durability, create another bucket in another region with versioning enabled. Then enable bucket versioning and cross region replications. 
     This only replicate the objects that  are created or updated after the replication is enabled. you still needs to copy the existing data.
