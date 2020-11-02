@@ -1341,11 +1341,39 @@ EC2
      Topics
       - A group of subscribers can subscribe to the topics
      
+    Kinesis
+     Streaming
+      - Get streaming data
+      - Analyse on the streaming data
+     Types:
+      Kinesis streams
+       EC2/IOT/Mobile/etc - > stream -> Kinesis Stream ( store data 1- 7 days with default 1 day) -> pull and analyse -> application -> analytics/ data- >store ->  S3 |Redshift |Dynamo Db | RDS
+       Shrad - like a storage topics
+       
+      Kinesis Firehose
+       No persistance
+       Data producers -> Kinesis Firehose ( No storage but can trigger Lambda for Analytics) - > output -> S3 |  Elastic search clustor -> Redshift
+       
+      Kinesis Analytics
+       Works with Kinesis stream or firehose to analyse the data in real time and store the data into S3
      
    Elastic transcoder
     Media transcoder to convert your video from one format to another for playing  into multiple device format.
+    
+    API Gateway
+     - Doorway into AWS envvironment
+     - Similar to Apigee
+     API Gatway -> Back end{ EC2, Lambda, dynamo db}
+     Track, throttle, authenticate ,authorize, maintain multiple version , maintain ssl,  of your API request
+     Do request and response transformation
+     Caching end points response
+     Cross orgin resource sharing
+      - It is one way to relax same orgin policy( enforsed by client) by server.This needs to be enabled if you get error for same orgin policy violation.
        
-      
+     Amazon Cognito:
+          It is a middleman to handle identity federation between users, identity provider like face book gmail and  aws resources.
+          user pools - handle users authentication, registration and account revovery. 
+          Identity pools - handles identity's authorization and access to aws resources. This is integrated with IAM.
       
            
            
