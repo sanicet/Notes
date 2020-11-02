@@ -1273,8 +1273,22 @@ EC2
         
     On Premise Solutions from AWS
         
-       
+       Database migration service
+         On prem <-> AWS
+         works with my sql, oracle dynamo db
+         supports hetrogeneious migration
+         
+       Server migration service
+        Incremental replication of on prem -> aws for backup, DR etc
         
+       AWS application discovery service
+        This can be helpful in planning the migration by getting a footprint of your opprem datacenter.
+        AWS migration Hub
+         Above data can be fed to AWS migration hub and track the progress of your datacenter migration task
+       VM import/export service
+        Import a VM ( On prem<->aws)
+       Download Amamzon Linux2 as an ISO
+        Download the image and use it on top of hyperware.
         
        
        
