@@ -1291,7 +1291,42 @@ EC2
         Download the image and use it on top of hyperware.
         
        
-       
+   Amazon SQS
+    Pull based Messaging queue of AWS. It is not Push based.
+    This is a message orionted API
+    Retention period : 1-14 days. Default is 4 days
+    Visibility time out - legth of time the message will be invisible for a consumer if another consumer has consumed it and is not confirmed the processing.
+     Maximum is 12 hours
+    Supports long polling and short polling.
+    max message size : 256 KB
+     Statdard Queue
+      Default queue
+      atleast one delivery
+      Duplicate is possible
+      Order is not gauranteed
+     FIFO Queue
+      Order is gauranteed
+      Exactly once delivery
+      No duplicates
+      300 transaction / sec limit
+      
+   Amazon SWF ( eg : workflow involved when an order is fullfilled and shipped until user gets it)
+    Simple workflow
+    This is a task oriented API
+    Task is assigned onlly once and never duplicated. Order is preserved. Basically it is a workflow.
+    Tracks all tasks and events in SWF
+    Workflow can last upto 1 year
+     It helps o co-ordinate a work within different components of your application.
+     It has
+      Workflow
+       -Tasks
+         -Steps
+           [human intreaction, executable code, webservices, scripts etc]
+      SWF actors:
+       Workflow starters - who initiate a workflow
+       Deciders - Control the flow of workflow
+       Activity workers - who carry out the work
+      
        
        
      
