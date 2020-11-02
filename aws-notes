@@ -1329,7 +1329,21 @@ EC2
       
        
        
+   SNS ( Simple notification service)
+    Application -> notifications -> SNS -> Push -> Consumers
+    All messages are stored in all 3 AZ
+    Pay as you go model
+     Notificatio types :
+       Push notification to mobile
+       to Email
+       to Http end point
+       to SQS
+     Topics
+      - A group of subscribers can subscribe to the topics
      
+     
+   Elastic transcoder
+    Media transcoder to convert your video from one format to another for playing  into multiple device format.
        
       
       
