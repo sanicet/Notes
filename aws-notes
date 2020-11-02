@@ -1146,10 +1146,11 @@ EC2
              You can enable cross AZ load balancing for HA of the load balancing. Even if some of the backed servers in one AZ goes un healthy, the load balancer in that AZ can 
              distribute the traffic to other instances in other AZ.
              Loadbalancers can be put into their on security group.
+             You can enable or disable sticky sessions in load balancer
              Types:
                     Application load balancers
                      Application aware load balancing 
-                     load balancing rules can be configured based on header or path., parameter(? not sure)
+                     load balancing rules can be configured based on header or path
                      Layer 7 load balancers
                       HTTP
                       HTTPS
@@ -1218,8 +1219,59 @@ EC2
        Communication between resources using pulic ip address is charged as it leaves to internet
        Communication between two AZ is chargable
        Communication between two regional is chargable and will incure additional regional communication charge as well.
+       
+     AutoScaling:
+     Click on launch configurations to create the template before creating autoscaling group
+     Warm up time period can be configured to control the startup time
+     Activity time history will show the information about instance start and stop
+      Components:
+       Groups ( Application server group , database server groups, webserver groups etc)
+       Configuration templates ( instructions)
+       Scaling options
+        Maintian specific instances # all times
+        Manual scaling ( Change max, min manually)
+        Schedule scaling
+        On Demand Scaling ( reactive)
+         eg: scale 50% of the load is met
+        Predictive Scaling ( proactive)
+         intelligent scaling
+        combine predictive and on demand scaling to get optimal performance and availability
+  
+ HA Archicture:
+  Plan for failure
+  Netflix simian Army projects for chaos testing ( injecting failures)
+  Use multi AZ and Multi region wherever possible
+  Scale out instead of scaling up ( performance) wherever possible
+  Remmber read replicas for performance and not for HA
+  S3 single AZ is not highly available
+  eg:
+  user -> route 53 - load balancer 1 ( region 1) - public subnet ( webserver autoscaling group) - internal load balancer (app server autoscaling group) - Datbase
+                                                  
+                   - load balancer 2( region 2) 
+  Configure health checks
+  HA For Bastion host:
+   Use Network load balancing to load balance the Baston host( different AZ) for HA and configre SSH or RDP (TCP). This is costly as network load balancing is involevd.
+   For a cost frontly sloution, use auto sacling group with EIP for a bastion host. If it fails, the autoscalng group will create another machine in another subnet and use an 
+   automated script to get the new EIP for new instance. You might have some down time in this scenario.
+  
+  
+  Cloudfront
+   : distributions:
+     Web
+     RTMP( for media streaming)
+     
+  RDS failover:
+   Reeboot with fail over will force the RDS to launch in a different availability zone.
+   
+   Cloudformation;
+    Sripting your architecture and automate the provisioning of AWS resources
+    
+    Elastic bean stack
+     This is under compute.
+     This is similar to Google APP engine. A PASS modeal for deploying your code/application and edit your configuration ( capacity, load balancing, security, health status etc).
+     
         
-        
+    On Premise Solutions from AWS
         
        
         
