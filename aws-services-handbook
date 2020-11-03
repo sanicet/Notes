@@ -1,70 +1,70 @@
 Organization and Architecture:
 	AWS Well-Architected Tool 	- Gives guidline and process towards deploying a well architect workload
-	AWS Trusted Advisor 		    - Is an online tool that provides you real time guidance to help you provision your resources
-									              following AWS best practice
-	AWS organization 			      - Manage policies and Billing of different acccounts
-	AWS Control Tower 			    - Automating well architect organization landing zone for accounts
-	AWS Service Catalog 		    - create and manage catalogs of IT services that are approved for use on AWS.
+	AWS Trusted Advisor 		- Is an online tool that provides you real time guidance to help you provision your resources
+									following AWS best practice
+	AWS organization 			- Manage policies and Billing of different acccounts
+	AWS Control Tower 			- Automating well architect organization landing zone for accounts
+	AWS Service Catalog 		- create and manage catalogs of IT services that are approved for use on AWS.
 	
 Cost
-	AWS Cost explorer			      - Identify Cost and related reports and dashboard
-	AWS Simple Monthly Calc		  - Estimate montly price
-	AWS Pricing Calculator		  - Estimate price
+	AWS Cost explorer			- Identify Cost and related reports and dashboard
+	AWS Simple Monthly Calc		- Estimate montly price
+	AWS Pricing Calculator		- Estimate price
 
 Operational 
-	AWS Cloudwatch 				      - Logs, Alert
-	AWS System manager 			    - Patch management
-	AWS System manager 			    - play book / Run book
-	AWS System manager 			    - Parameter store - to store parameters
+	AWS Cloudwatch 				- Logs, Alert
+	AWS System manager 			- Patch management
+	AWS System manager 			- play book / Run book
+	AWS System manager 			- Parameter store - to store parameters
 	AWS Systems Manager OpsCenter-Central location to view, investigate, and resolve operational issues related to any AWS resourc
-	Amazone event Bridge		    - Capture Events
-	AWS X-Ray           		    - Trace through workload
+	Amazone event Bridge		- Capture Events
+	AWS X-Ray           		- Trace through workload
 	AWS Personal Health Dashboard- used to check if an AWS service is having a problem
 
 
 Audit and complience
-	AWS CloudTrail 				    - Audit
-	AWS Config 					      - Resource configuration base lines
-	AWS Config rules 			    - compared the current configuration with base lines
-	AWS Security Hub 			    - To evaluate security policies across aws accounts
-	AWS Cloud Compliance 		  - To evaluate complience process
-	AWS Macie					        - Identify PII data from S3
+	AWS CloudTrail 				- Audit
+	AWS Config 					- Resource configuration base lines
+	AWS Config rules 			- compared the current configuration with base lines
+	AWS Security Hub 			- To evaluate security policies across aws accounts
+	AWS Cloud Compliance 		- To evaluate complience process
+	AWS Macie					- Identify PII data from S3
 
 CICD Pipeline
-	AMI 						        - Linux image format
+	AMI 						- Linux image format
 	Ec2 Image Builder 			- Windows image format
 	Elastic Container Registry	- Image repository
-	Code Commit					    - Code repository
-	CloudBuild					    - Continous integration
-	AWS CodePipeline			    - CICD pipeline
-	Artifacts Store				    - Artifacts repository
-	Code Deploy					      - continous deployment
+	Code Commit					- Code repository
+	CloudBuild					- Continous integration
+	AWS CodePipeline			- CICD pipeline
+	Artifacts Store				- Artifacts repository
+	Code Deploy					- Dontinous deployment
 
 Infrastrucute Automation
-	CloudFormation				    - Infrastrucute as code automation
-	AWS OpsWorks				      - Manged chef and puppet automation
+	CloudFormation				- Infrastrucute as code automation
+	AWS OpsWorks				- Manged chef and puppet automation
 
 
 Compute
-	Ec2							        - Compute VM ( IAAS)
-	ECS							        - Managed container services supporting docker images ( PAAS)
-	EKS							        - Managed Kubernetes service ( PAAS)
+	Ec2							- Compute VM ( IAAS)
+	ECS							- Managed container services supporting docker images ( PAAS)
+	EKS							- Managed Kubernetes service ( PAAS)
 	Elastic Bean Stack			- Deploy the application code and let AWS worry about the rest ( PAAS)
-	Lambda						      - Function as a service
-	APIGateway					     - API Gateway like Apigee
+	Lambda						- Function as a service
+	APIGateway					- API Gateway like Apigee
 	
 Storage
-	S3							      - Object Store
-	EBS							      - Block storage
+	S3							- Object Store
+	EBS							- Block storage
 	Instance Store				- Temporary Block storage inside instance for caching
-	EFS							      - Elastic file storage
+	EFS							- Elastic file storage
 	
 Queues
-	SQS							      - Pull based Queues
-	SNS							      - Push Based Queues to different end points
+	SQS							- Pull based Queues
+	SNS							- Push Based Queues to different end points
 	
 Streams
-	Kinesis Streams				    - Streams with persistance
+	Kinesis Streams				- Streams with persistance
 	Kinesis Stream Firhose		- Strems without persistance. 
 	
 Scaling
@@ -78,18 +78,18 @@ Datawarehouse
 	AWS Redshift 				- AWS Datawarehouse solution
 
 Analysis
-	AWS Glue					      - ETL with integration to S3, RDS, Athena, Redshift. Supports diffrent data structures
-	AWS Athena					    - Analyse Data from S3 using SQL
+	AWS Glue					- ETL with integration to S3, RDS, Athena, Redshift. Supports diffrent data structures
+	AWS Athena					- Analyse Data from S3 using SQL
 	Amazon quick sight			- Visualization tool like ELK
-	Kinesis Stream analyser	- Analysis engin inside Kinesis stream / firehose
+	Kinesis Stream analyser		- Analysis engin inside Kinesis stream / firehose
 
 CDN
 	CloudFront
 
 Security
-	IAM							        - Control access to resources
-	KMS							        - Key management services
-	Amazon Cognito				  - Idenity federation service
+	IAM							- Control access to resources
+	KMS							- Key management services
+	Amazon Cognito				- Idenity federation service
 	
 
 
