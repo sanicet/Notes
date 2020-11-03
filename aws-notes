@@ -1424,6 +1424,24 @@ EC2
    If lost, even AWS does not have access.
    APP -> ENI -> Cloud HSM( its own VPC owned by you)
    Configure 1 HSM per subnet for HA
+   
+   Systems manager ( SSM)
+    Parameter Store
+     Manages configurations and secrets within AWS for resources
+      eg: passwords, connection strings , api keys
+      Values can be plain text or encrypted
+      Has ability to store parameters in heirarchy/ tree like structure and retrieve it like that
+      Can set TTL
+      Can versionised it.
+      Integrated with cloudformations.
+      
+  Serverless
+   Lambda
+   API Gateway
+   Eleastic container service
+   
+  AWS-xray
+   - Debug serverless app 
     
         
          
