@@ -1010,7 +1010,7 @@ EC2
         
         AWS VPC:
         
-         AWS largest subnet that can be used : 10.0.0.0/16 and smallest would be /24
+         AWS largest subnet that can be used : 10.0.0.0/16 and smallest would be /28
          5 ip address from host pool in each subnet is reserved by aws
          
          
@@ -1444,9 +1444,80 @@ EC2
    - Debug serverless app 
     
         
-         
+     memcache 
+      horizontal scaling
+      multi threaded performance
+     Redis
+      Advance data type
+      ranking and sorting
+      pub sub capabilities
+      persistance
+      multi AZ
+      Back up and restore
+     
 
-         
+  Questions and notes
+  Topics to revise:
+Dynamo Db, Aurora, Aurora Serverless, RDS
+ - How is performance gauranteed by AWS?
+ - How many read and write replica are configured?
+ - How is durability managed ?
+ - How is High availablity managed?
+ - How does it scale?
+ - How to design a partition key in dyano DB?
+ - Maximum size of an object to be stored in dynamo DB? DynamoDB allows for the storage of large text and binary objects, but there is a limit of 400 KB.
+ -Supported Databases in RDS and Arora
+ 
+How to connect VPN and direct connect  
+ - Review orellie documentation 
+ - Routing propogation from VPC to AWS
+ 
+ 
+WAF Configuration types
+ - Conditions
+ 
+ 
+
+Which all IP address are reserved by AWS?
+ - First Four and last one address
+ 
+ 
+Alias records are route 53 extension
+
+Hyperware for EC2 instances
+ Nitro, Xen
+ 
+ 
+Types of storage gateways?
+ gatway stored???
+ 
+Which of the following data formats does Amazon Athena support?
+
+read : https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html
+
+read: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.LowLevelAPI.html
+
+read:  http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html
+
+What is the maximum response time for a Business Level 'production down' Support Case? 1 hours
+
+ReceiveWaittime seconds
+what is the durablity of S3-1Z and RRS
+What is the underlying hyperwiser for Ec2?
+bespoke vpc
+should vpn needs iG?
+DBs supported by RDS and Arora?
+default dashboard available in cloudwatch for ec2?
+Synamo Db consistancy
+cloudfront dynamic content caching??
+Maximum viscibility timings of SQS? 12 hours
+AWS autoscaling group instance shut down policy?
+how is windows instance billed? Per hour
+Soft limit on Ec2 instance? 20 instances per region
+What is ISCSI?
+
+A restriction however is that 'Using Amazon EFS with Microsoft Windows is not supported'. File Gateway does not support iSCSI in the client side.
+is there something called event log filters?
          
          
          
