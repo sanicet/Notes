@@ -28,6 +28,10 @@ git commit -m "added first commit"
 
 SSL Certificate commands
 
+To get a CA cert:
+https://curl.se/docs/sslcerts.html
+openssl s_client -showcerts -servername server -connect server:443 > cacert.pem
+
 To generate an RSA key, use the genrsa command:
 openssl genrsa -aes128 -out fd.key 2048
  
@@ -197,6 +201,13 @@ with proxy
  
 With proxy and client certificate
 curl -x https://172.18.100.15:18717 --cert-type P12 --cert /export/home/xxx/xxx_seckey-new.p12:password --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getLockStatus" --data @/export/home/sxxx/Request.xml <<url>> -v
+	
+To set a CA Path
+curl --capath /export/home/path/certs https://xxxx@github.com/
+
+Git
+To set the path for CA, use 
+export GIT_SSL_CAPATH=/export/home/ddd/certs
 
 Oracle
 
