@@ -1017,7 +1017,8 @@ EC2 usage are billed on one second increments, with a minimum of 60 seconds
         AWS VPC:
         
          AWS largest subnet that can be used : 10.0.0.0/16 and smallest would be /28
-         5 ip address from host pool in each subnet is reserved by aws
+         5 ip address from host pool in each subnet is reserved by aws.First four and last one.
+         Default VPC contain one subnet in every region with /20
          
          
          Subnet is AZonal resource
@@ -1525,9 +1526,48 @@ What is ISCSI?
 A restriction however is that 'Using Amazon EFS with Microsoft Windows is not supported'. File Gateway does not support iSCSI in the client side.
 is there something called event log filters?
          
+Recovery time objective ( RTO) - RTO is defined as the maximum amount of downtime that is permitted to recover from backup and to resume processing.
+Recovery point objective (RPO) -RPO is defined as the maximum period of data loss that is acceptable in the event of a failure or incident.
          
-         
-            
+ RDS - Allows automatic backup with default retention period upto 1 day and max to 35 days. The back ups are taken daily with a 30 minute window. There may be an 
+       elevated latency while creating the backup. MultiAZ deploymnet of DB can reduce the application latancy impact as the back up will taken from stand by instance.
+       automatic backup also takes backup of the transaction logs, when restored, it will restore from backup and transaction logs and can achoeve a RPO of 5 minutes.
+       The restore will happen into a new DB instance and the DB options and any custom security groups needs to be associated with DB once restored.If DB is deleted, all backup
+       from automatic backup also will be deleted. 
+       
+       Allows manual backup. this will not get deleted when DB is deleted.
+       
+       RDS supports, mySQL,PostgresSQL,MariaDB, SQLServer, Oracle and Arora.
+       
+       HA
+       
+       All of the above DB supports multiple AZ deployment ( 1 primary read and standby) for HA and read replica (except oracle and SQL server) for HP. In additional Arora clustore will automatically created
+       for multi AZ and 15 max read replica. More over Arora is 5 times faster than mysql. MultiAZ will create a master and standby for HA. During a network loss of AZ,DB or compute
+       or storage failure of DB clustor, it will automatically fail over. You can also choose to manually faile over in case of a DB instance increase or any other associated failures.
+       The failure over will happen within minutes ( 1-2 min). The DNS will remain same.
+       
+       RDS used EBS as backend storage. The EBS storage classification( magnetic, gp2, provisioned iops) will specify the performance of db
+       
+       Scaling:
+        Amazon RDS allows you to scale compute and storage vertically, and for some DB engines, you can scale horizontally.All DB can supports upto 64 TB except my sql server where it is
+        16 TB.
+        
+        Partitioning a large relational database into multiple instances or shards is a common technique for handling more requests beyond the capabilities of a single instance.
+        Partitioning, or sharding, allows you to scale horizontally to handle more users and requests but requires additional logic in the application layer.
+        
+        Cross region read replica can be used to enhance performance with global traffic.
+        
+      Security:
+       Use IAM and DB users for securiung DBs
+       Use Securiy groups and ACL for limiting traffic access
+       All DB support TLS and KMS/TDE. Backup and transaction logs are also encrypted.
+       
+       
+       
+        
+        
+        
+       
                             
                       
                          
