@@ -1562,7 +1562,36 @@ Recovery point objective (RPO) -RPO is defined as the maximum period of data los
        Use Securiy groups and ACL for limiting traffic access
        All DB support TLS and KMS/TDE. Backup and transaction logs are also encrypted.
        
-       
+  Amazon Redshift
+   Amazon Redshift is a fast, powerful, fully managed, petabyte-scale data warehouse service in the cloud. 
+   Amazon Redshift is a relational database designed for OLAP scenarios and optimized for high-performance analysis and reporting of very large datasets
+   using standard SQL commands 
+   connectivity via ODBC or JDBC
+   Clustor:
+    1 leader node
+    N comput note
+    The disk storage for a compute node is divided into a number of slices (2 to 16)
+    You can increase query performance by adding multiple nodes to a cluster
+    The partitioning strategy you specify for the data also helps in distributing data across multiple compute resources and allows you to achieve high levels of performance.
+    Whenever you perform a resize operation, Amazon Redshift will create a new cluster and migrate data from the old cluster to the new one.
+    During a resize operation, the database will become read-only until the operation is finished
+    The fastest way to load data into Amazon Redshift is doing bulk data loads from flat files stored in an Amazon Simple Storage Service (Amazon S3) bucket or from an Amazon DynamoDB table.
+    Instead of having one single large file with your data, you can enable parallel processing by having a cluster with multiple nodes and multiple input files.
+    One of the key performance optimizations used by Amazon Redshift is data compression
+    After each bulk data load that modifies a significant amount of data, you will need to perform a VACUUM command to reorganize your data and reclaim space after deletes. It is also recommended to run an ANALYZE command to update table statistics.
+    You can monitor the performance of the cluster and specific queries using Amazon CloudWatch and the Amazon Redshift web console.
+    Amazon Redshift supports both automated snapshots and manual snapshots.Similar to RDS.
+    To encrypt data at rest, Amazon Redshift integrates with KMS and AWS CloudHSM for encryption key management services.
+     Distribution/partition types:
+      Even : uniform distribution of data with all compute nodes
+      Key : matching keys are stored close together. Increase query performance for joins
+      All : All copy of entire table is manitained in all compute. Sutable for large tables with less frequent changes.
+    Sort Keys:
+     Sorting enables efficient handling of range-restricted predicates. 
+      
+      
+    
+    
        
         
         
