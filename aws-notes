@@ -1636,11 +1636,39 @@ Recovery point objective (RPO) -RPO is defined as the maximum period of data los
          leaderboards that Redis natively supports.
          
     
-    
+    Amazon cloudfront:
+     Supports HTPP,HTTPS,RTMP(video streaming) protocols
+     Supports static,dynamic and video streaming
+     Cloudfront concepts : CloudFront: distributions(CDN Url), origins(Content orgine), and cache control(TTL)
+     By default, objects expire from the cache after 24 hour
+     You can also remove copies of an object from all Amazon CloudFront edge locations at any time by calling the invalidation Application Program Interface (API).
+     Instead of invalidating objects manually or programmatically, it is a best practice to use a version identifier as part of the object (file) path name
+     You control which requests are served by which origin and how requests are cached using a feature called cache behaviors.
+     Cache behaviors are applied in order; if a request does not match the first path pattern, it drops down to the next path pattern. Normally the last path pattern specified is * to match all files
+     Accessing private content:
+      Signed URL
+       Use URLs that are valid only between certain times and optionally from certain IP addresses.
+      Signed cookies
+       Require authentication via public and private key pairs.
+      Origin Access Identities (OAI)
+       Restrict access to an Amazon S3 bucket only to a special Amazon CloudFront user associated with your distribution.
+       This is the easiest way to ensure that content in a bucket is only accessed by Amazon CloudFront.
        
+      CloudFront is not appropriate in case if content and users are on same location or if the usrs are in VPN/corporate network 
         
-        
-        
+  AD services
+  
+  AWS Directory Service for Microsoft Active Directory (Enterprise Edition):
+   This Directory Service is your best choice if you have more than 5,000 users and 
+   need a trust relationship set up between an AWS-hosted directory and your on-premises directories.
+   
+  Simple AD
+   In most cases, Simple AD is the least expensive option and your best choice if you have 5,000 or fewer users and
+   don’t need the more advanced Microsoft Active Directory features.This does not also support MFA or AD connect.
+  
+  AD Connector 
+   AD Connector is your best choice when you want to use your existing on-premises directory with AWS cloud services.
+  
        
                             
                       
