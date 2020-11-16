@@ -1589,7 +1589,52 @@ Recovery point objective (RPO) -RPO is defined as the maximum period of data los
     Sort Keys:
      Sorting enables efficient handling of range-restricted predicates. 
       
-      
+
+
+ Cache:
+   Cache aside pattern ( app -> cache -> no -> DB->serialize -> put ->cache -> next time -> app -> cache ->yes->return
+   ElasticCache( managed, elastic): 
+    supports horizontal scaling. for vertical scaling, spin up a new clustor
+               MemCache
+                Simple Key-value( Blob) Cache  
+                Partition clustor to shards for HP
+                Session / DB ( Serialize) -> Cache    
+                for upgrade, spin up a new clustor
+                A single Memcached cluster can contain up to 20 nodes.
+                For Memcached clusters, you can decrease the impact of the failure of a cache node by using a larger number of nodes with a smaller capacity, 
+                instead of a few large nodes.
+                For Memcached clusters partitioned across multiple nodes, Amazon ElastiCache supports Auto Discovery with the provided client library
+                The Auto Discovery client gives your applications the ability to identify automatically all of the nodes in a cache cluster and
+                to initiate and maintain connections to all of these nodes
+                Snapshots cannot be created for clusters using the Memcached engine because it is a purely in-memory key/value store and always starts empty
+                Memcached is purely in-memory and does not have native backup capabilities
+               Redis
+                -Supports cache ->store ->  disk ( use it for back up and recovery)
+                -Supports upto 5 read replica. 
+                -if -> Master ->fail -> read replica -> master
+                -Redis also has advanced features that make it easy to sort and rank data
+                -A single Memcached cluster can only contain 1 node. however, multiple clusters can be grouped into a Redis replication group
+                -A Redis cluster consists of a single cache node that is handling read and write transactions.While you can only have one node handling write commands,
+                -you can have up to five read replicas handling read-only requests. The replication group can have max of 6 clustor with one master and 5 read replica nodes.
+               - Redis supports mmultiaz replication. While memcache does not.
+                -In the event the primary node fails or can’t be reached, Multi-AZ will select and promote a read replica to become the new primary,
+                 and a new node will be provisioned to replace the failed one. Amazon ElastiCache will then update the Domain Name System (DNS) entry of the new primary node to allow
+                 your application to continue processing without any configuration change and with only a short disruption
+                -replication is asynchrnous
+                -redis-backup-> S3
+                -A best practice is to set up a replication group and perform a snapshot against one of the read replicas instead of the primary node.To avoid performance degredation of master
+                -Snapshots can be created automatically based on a schedule
+        Security of cache;
+           - Use security groups and ACLfor network acces
+           - Use IAM for managing clustor and cache
+        Scaling:
+         -With Amazon ElastiCache and the Memcached engine, you can also scale your cluster horizontally by adding or removing nodes
+         -With Amazon ElastiCache and the Redis engine, you can also scale horizontally by creating a replication group that will automatically replicate across multiple read replicas.
+        Usage:
+        - Use Memcached when you need a simple, in-memory object store that can be easily partitioned and scaled horizontally
+        - Use Redis when you need to back up and restore your data, need many clones or read replicas, or are looking for advanced functionality like sort and rank or 
+         leaderboards that Redis natively supports.
+         
     
     
        
