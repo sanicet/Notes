@@ -1669,9 +1669,15 @@ Recovery point objective (RPO) -RPO is defined as the maximum period of data los
   AD Connector 
    AD Connector is your best choice when you want to use your existing on-premises directory with AWS cloud services.
   
-       
+ Amazon Kinesis
+  is ideally suited for ingesting and processing streams of data, 
+  it is less appropriate for batch jobs such as nightly Extract, Transform, Load (ETL) processes.
+  For those types of workloads, consider AWS Data Pipeline
                             
-                      
+ AWS OPSWORKS:
+  AWS OpsWorks is a configuration management service that helps you configure and operate applications using Chef.
+  AWS OpsWorks supports both Linux or Windows servers, including existing Amazon EC2 instances or servers running in your own data center
+  
                          
                          
                          
