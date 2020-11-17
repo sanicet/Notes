@@ -1,1 +1,51 @@
+Make a security checklist
+ Data Protection
+      PII/PCI Data?
+      Where it is stored?
+      internal or internet app?
+      what sensitive tasks are performed in app?
+     Does my app run any risky software activities?
+ Identity Management 
+    How does users verified?
+    
+  Data Protection pattern:
+   Gatekeeper pattern
+     Gatekeeper validates the request from client and pass it to host
+     Gatekeeper role : Limited access and is exposed to public
+     
+  Identity Management 
+         Valet key pattern
+          user makes a request to app for a purticular request
+          App validates the request and return the token
+          Use the token to access the request
+          the token is invalidated after some time.
 
+        Federated Identity pattern
+         Deligates authentication to external provider
+   
+       Use multi factor auhentication
+       require re-authentication of some actions like financial
+       consider jist in time access for requests
+       use stable authN and authZ platform
+       properly handling error and exceptions
+       reduce attak surface. If you don't need it, delete it
+       monitor your service and triggers about issues
+       encrypt sensitive data
+       implement fail safe measures
+       consider threat modeling ( Stride threat modeling)
+       Avoid hardcoding
+        Spoofing attacks
+         TLS         
+        Tampering
+         Monitoring
+        Repudiation
+        Information disclosure
+         Encryption
+        denail of service
+         Monitoring and remediating
+        elevation of previlage
+         Authorization - federated identity providers
+         
+   
+
+ 
