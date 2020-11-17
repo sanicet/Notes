@@ -46,6 +46,18 @@ Make a security checklist
         elevation of previlage
          Authorization - federated identity providers
          
+   Build a datalake
+    Control plane audit logs ( cloud trail, audit logs etc)
+    service specific logs ( storage access logs, kms access logs, function executions etc) - turn it on case by case basis based on importance and classification
+    cloud-native detection services logs
+    API gateway / WAF logs
+    Network flow logs
+    System logs from VMs
+    End point detection and response agents in Vms
+    application logs
+    
+   
+         
    
 
  
