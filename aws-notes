@@ -1679,7 +1679,8 @@ Recovery point objective (RPO) -RPO is defined as the maximum period of data los
   AWS OpsWorks supports both Linux or Windows servers, including existing Amazon EC2 instances or servers running in your own data center
   
                          
-                         
+ A Service Health Dashboard is available and maintained by the customer support team to alert customers to any issues that may be of broad impact
+ AWS Security Center is available to provide you with security and compliance details about AWS.
                          
                          
                          
