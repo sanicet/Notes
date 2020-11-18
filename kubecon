@@ -1,0 +1,45 @@
+
+inclusicenameorg
+kastern?
+telcos edge computing
+ CNF workmng group
+ 
+ edge computing - cox -cloud native
+ microvm?
+ virtual clustors?
+ falco - security
+ Thanos - time series db
+ fargate
+ vitess - Scaling opensource DB
+ 
+ simplicity
+Optimization
+transparency
+durability
+
+extension
+kubernetes custom plugins
+krew - service discovery of reusable kubernetes plugins
+ -cert-manger
+ -ingress-nginx
+ -krew
+ -tail
+ -score
+ 
+wrapper
+
+ Octant, k9s, lens(ide) - kubernetes UI
+ 
+configuration manager
+Helm - imperative, template driven
+kustomize - declerative, template free
+
+
+Application ops
+clickOps - operation by clicks
+GitOps - operations by specifying declerative templates and stored in git
+ flux
+ argo
+SheetOps - use google spread sheet for controlling kubernetes instead of yaml
+ 
+ 
