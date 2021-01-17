@@ -8,6 +8,7 @@ Functional interfaces:
   Consumer<T>
   Function<T,R>
   Note : generic parameters (for example, the T in Consumer<T>) can be bound only to reference types. So use above functional interface when you want to pass reference object and use 
-  the primitive typed functional interface like IntPredicate when using primitive values. Else, there will be a performance impact when boxing and unboxing.
+  the primitive typed functional interface like IntPredicate when using primitive values. Else, there will be a performance impact when boxing and unboxing.Boxed values are a wrapper around primitive types and are stored on the heap. 
+  Therefore, boxed values use more memory and require additional memory lookups to fetch the wrapped primitive value. 
   
   
