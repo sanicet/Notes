@@ -7,6 +7,7 @@ Functional interfaces:
   Predicate<T>
   Consumer<T>
   Function<T,R>
-  Note : generic parameters (for example, the T in Consumer<T>) can be bound only to reference types. So use above functional 
+  Note : generic parameters (for example, the T in Consumer<T>) can be bound only to reference types. So use above functional interface when you want to pass reference object and use 
+  the primitive typed functional interface like IntPredicate when using primitive values. Else, there will be a performance impact when boxing and unboxing.
   
   
