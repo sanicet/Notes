@@ -1,0 +1,12 @@
+Functional interfaces:
+ An interface that contains only one abstract method. They can contain other default methods but only one abstract method is allowed. @FunctionalInterface is the optional annotation for compiler to know if the interface is functional.
+ Comparable
+ Runnable
+ Callable
+ java.util.function (https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html) important ones
+  Predicate<T>
+  Consumer<T>
+  Function<T,R>
+  Note : generic parameters (for example, the T in Consumer<T>) can be bound only to reference types. So use above functional 
+  
+  
