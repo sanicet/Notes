@@ -1,0 +1,21 @@
+Commands
+
+Anaconda:
+ update :conda update conda
+	:conda update --all
+ jypyter:
+        -conda install -c conda-forge ipympl
+  	-conda install nodejs
+	-jupyter labextenstion install@jupyter-widgets/jypyterlab-manager
+	-jupyter labextenstion install jypyter-matplotlib 
+VirtualEnv:
+	-conda create -n dsfs python=3.6
+	-conda activate dsfs
+	-conda deactivate dsfs
+Pip ipython
+	:python -m pip install ipython
+ipython	:
+	-ipython
+	-exit
+	-ipython filename
+  
